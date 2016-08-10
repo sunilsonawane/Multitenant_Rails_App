@@ -1,0 +1,4068 @@
+  [1m[36m (25.3ms)[0m  [1mCREATE TABLE "schema_migrations" ("version" character varying(255) NOT NULL) [0m
+  [1m[35m (59.6ms)[0m  CREATE UNIQUE INDEX  "unique_schema_migrations" ON "schema_migrations"  ("version")
+  [1m[36mActiveRecord::SchemaMigration Load (0.3ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Migrating to CreateForums (20160112092613)
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36m (96.2ms)[0m  [1mCREATE TABLE "forums" ("id" serial primary key, "title" character varying(255), "description" text, "created_at" timestamp, "updated_at" timestamp) [0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES ($1)  [["version", "20160112092613"]]
+  [1m[36m (27.6ms)[0m  [1mCOMMIT[0m
+  [1m[35mActiveRecord::SchemaMigration Load (0.7ms)[0m  SELECT "schema_migrations".* FROM "schema_migrations"
+
+
+Started GET "/" for 127.0.0.1 at 2016-01-12 15:02:04 +0530
+  [1m[36mActiveRecord::SchemaMigration Load (0.3ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by Rails::WelcomeController#index as HTML
+  Rendered /home/sunil/.rvm/gems/ruby-2.1.3/gems/railties-4.1.6/lib/rails/templates/rails/welcome/index.html.erb (17.2ms)
+Completed 200 OK in 65ms (Views: 50.8ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/forums" for 127.0.0.1 at 2016-01-12 15:02:13 +0530
+Processing by ForumsController#index as HTML
+  [1m[35mForum Load (0.4ms)[0m  SELECT "forums".* FROM "forums"
+  Rendered forums/index.html.erb within layouts/application (2.8ms)
+Completed 200 OK in 798ms (Views: 795.2ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/assets/forums.css?body=1" for 127.0.0.1 at 2016-01-12 15:02:14 +0530
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2016-01-12 15:02:14 +0530
+
+
+Started GET "/assets/scaffolds.css?body=1" for 127.0.0.1 at 2016-01-12 15:02:14 +0530
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2016-01-12 15:02:14 +0530
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2016-01-12 15:02:14 +0530
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2016-01-12 15:02:14 +0530
+
+
+Started GET "/assets/forums.js?body=1" for 127.0.0.1 at 2016-01-12 15:02:14 +0530
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2016-01-12 15:02:14 +0530
+
+
+Started GET "/forums/new" for 127.0.0.1 at 2016-01-12 15:02:16 +0530
+Processing by ForumsController#new as HTML
+  Rendered forums/_form.html.erb (91.3ms)
+  Rendered forums/new.html.erb within layouts/application (170.7ms)
+Completed 200 OK in 219ms (Views: 215.5ms | ActiveRecord: 1.7ms)
+
+
+Started POST "/forums" for 127.0.0.1 at 2016-01-12 15:02:35 +0530
+Processing by ForumsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"VUP6pajA+wvoGWiR4ed3Gk2hixHgXEzAzFY8tBJUQnw=", "forum"=>{"title"=>"ABC", "description"=>"Test Description"}, "commit"=>"Create Forum"}
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.5ms)[0m  INSERT INTO "forums" ("created_at", "description", "title", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"  [["created_at", "2016-01-12 09:32:35.372356"], ["description", "Test Description"], ["title", "ABC"], ["updated_at", "2016-01-12 09:32:35.372356"]]
+  [1m[36m (74.2ms)[0m  [1mCOMMIT[0m
+Redirected to http://localhost:3000/forums/1
+Completed 302 Found in 109ms (ActiveRecord: 75.1ms)
+
+
+Started GET "/forums/1" for 127.0.0.1 at 2016-01-12 15:02:35 +0530
+Processing by ForumsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[35mForum Load (0.3ms)[0m  SELECT  "forums".* FROM "forums"  WHERE "forums"."id" = $1 LIMIT 1  [["id", 1]]
+  Rendered forums/show.html.erb within layouts/application (0.7ms)
+Completed 200 OK in 32ms (Views: 29.4ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2016-01-12 15:02:35 +0530
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2016-01-12 15:02:35 +0530
+
+
+Started GET "/assets/forums.css?body=1" for 127.0.0.1 at 2016-01-12 15:02:35 +0530
+
+
+Started GET "/assets/scaffolds.css?body=1" for 127.0.0.1 at 2016-01-12 15:02:35 +0530
+
+
+Started GET "/assets/forums.js?body=1" for 127.0.0.1 at 2016-01-12 15:02:35 +0530
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2016-01-12 15:02:35 +0530
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2016-01-12 15:02:35 +0530
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2016-01-12 15:02:35 +0530
+
+
+Started GET "/" for 127.0.0.1 at 2016-01-12 15:38:49 +0530
+  [1m[36mActiveRecord::SchemaMigration Load (0.4ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by Rails::WelcomeController#index as HTML
+  Rendered /home/sunil/.rvm/gems/ruby-2.1.3/gems/railties-4.1.6/lib/rails/templates/rails/welcome/index.html.erb (1.5ms)
+Completed 200 OK in 15ms (Views: 6.8ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/forums" for 127.0.0.1 at 2016-01-12 15:38:56 +0530
+Processing by ForumsController#index as HTML
+  [1m[35mForum Load (0.7ms)[0m  SELECT "forums".* FROM "forums"
+  Rendered forums/index.html.erb within layouts/application (9.9ms)
+Completed 200 OK in 73ms (Views: 67.3ms | ActiveRecord: 2.9ms)
+
+
+Started GET "/assets/forums.css?body=1" for 127.0.0.1 at 2016-01-12 15:38:56 +0530
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2016-01-12 15:38:56 +0530
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2016-01-12 15:38:56 +0530
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2016-01-12 15:38:56 +0530
+
+
+Started GET "/assets/scaffolds.css?body=1" for 127.0.0.1 at 2016-01-12 15:38:56 +0530
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2016-01-12 15:38:56 +0530
+
+
+Started GET "/assets/forums.js?body=1" for 127.0.0.1 at 2016-01-12 15:38:56 +0530
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2016-01-12 15:38:56 +0530
+
+
+Started GET "/forums/1/edit" for 127.0.0.1 at 2016-01-12 15:39:04 +0530
+Processing by ForumsController#edit as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mForum Load (0.2ms)[0m  [1mSELECT  "forums".* FROM "forums"  WHERE "forums"."id" = $1 LIMIT 1[0m  [["id", 1]]
+  Rendered forums/_form.html.erb (12.7ms)
+  Rendered forums/edit.html.erb within layouts/application (16.0ms)
+Completed 200 OK in 48ms (Views: 45.4ms | ActiveRecord: 0.4ms)
+
+
+Started PATCH "/forums/1" for 127.0.0.1 at 2016-01-12 15:39:11 +0530
+Processing by ForumsController#update as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"VUP6pajA+wvoGWiR4ed3Gk2hixHgXEzAzFY8tBJUQnw=", "forum"=>{"title"=>"ABCD", "description"=>"Test Description"}, "commit"=>"Update Forum", "id"=>"1"}
+  [1m[35mForum Load (0.3ms)[0m  SELECT  "forums".* FROM "forums"  WHERE "forums"."id" = $1 LIMIT 1  [["id", 1]]
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.4ms)[0m  UPDATE "forums" SET "title" = $1, "updated_at" = $2 WHERE "forums"."id" = 1  [["title", "ABCD"], ["updated_at", "2016-01-12 10:09:11.197279"]]
+  [1m[36m (72.9ms)[0m  [1mCOMMIT[0m
+Redirected to http://localhost:3000/forums/1
+Completed 302 Found in 82ms (ActiveRecord: 73.8ms)
+
+
+Started GET "/forums/1" for 127.0.0.1 at 2016-01-12 15:39:11 +0530
+Processing by ForumsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[35mForum Load (0.4ms)[0m  SELECT  "forums".* FROM "forums"  WHERE "forums"."id" = $1 LIMIT 1  [["id", 1]]
+  Rendered forums/show.html.erb within layouts/application (0.7ms)
+Completed 200 OK in 65ms (Views: 63.4ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/assets/forums.css?body=1" for 127.0.0.1 at 2016-01-12 15:39:11 +0530
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2016-01-12 15:39:11 +0530
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2016-01-12 15:39:11 +0530
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2016-01-12 15:39:11 +0530
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2016-01-12 15:39:11 +0530
+
+
+Started GET "/assets/scaffolds.css?body=1" for 127.0.0.1 at 2016-01-12 15:39:11 +0530
+
+
+Started GET "/assets/forums.js?body=1" for 127.0.0.1 at 2016-01-12 15:39:11 +0530
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2016-01-12 15:39:11 +0530
+
+
+Started GET "/forums" for 127.0.0.1 at 2016-01-12 15:39:15 +0530
+Processing by ForumsController#index as HTML
+  [1m[36mForum Load (0.4ms)[0m  [1mSELECT "forums".* FROM "forums"[0m
+  Rendered forums/index.html.erb within layouts/application (2.9ms)
+Completed 200 OK in 36ms (Views: 35.2ms | ActiveRecord: 0.4ms)
+
+
+Started DELETE "/forums/1" for 127.0.0.1 at 2016-01-12 15:39:20 +0530
+Processing by ForumsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"VUP6pajA+wvoGWiR4ed3Gk2hixHgXEzAzFY8tBJUQnw=", "id"=>"1"}
+  [1m[35mForum Load (0.3ms)[0m  SELECT  "forums".* FROM "forums"  WHERE "forums"."id" = $1 LIMIT 1  [["id", 1]]
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.3ms)[0m  DELETE FROM "forums" WHERE "forums"."id" = $1  [["id", 1]]
+  [1m[36m (14.7ms)[0m  [1mCOMMIT[0m
+Redirected to http://localhost:3000/forums
+Completed 302 Found in 19ms (ActiveRecord: 15.5ms)
+
+
+Started GET "/forums" for 127.0.0.1 at 2016-01-12 15:39:20 +0530
+Processing by ForumsController#index as HTML
+  [1m[35mForum Load (0.6ms)[0m  SELECT "forums".* FROM "forums"
+  Rendered forums/index.html.erb within layouts/application (1.8ms)
+Completed 200 OK in 39ms (Views: 37.6ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2016-01-12 15:39:20 +0530
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2016-01-12 15:39:20 +0530
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2016-01-12 15:39:20 +0530
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2016-01-12 15:39:20 +0530
+
+
+Started GET "/assets/forums.js?body=1" for 127.0.0.1 at 2016-01-12 15:39:20 +0530
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2016-01-12 15:39:20 +0530
+
+
+Started GET "/assets/forums.css?body=1" for 127.0.0.1 at 2016-01-12 15:39:20 +0530
+
+
+Started GET "/assets/scaffolds.css?body=1" for 127.0.0.1 at 2016-01-12 15:39:20 +0530
+
+
+Started GET "/" for 127.0.0.1 at 2016-04-13 12:00:53 +0530
+  [1m[36mActiveRecord::SchemaMigration Load (38.7ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by Rails::WelcomeController#index as HTML
+  Rendered /home/sunil/.rvm/gems/ruby-2.1.4/gems/railties-4.1.6/lib/rails/templates/rails/welcome/index.html.erb (1.1ms)
+Completed 200 OK in 21ms (Views: 4.4ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/forums" for 127.0.0.1 at 2016-04-13 12:01:04 +0530
+Processing by ForumsController#index as HTML
+  [1m[35mForum Load (25.5ms)[0m  SELECT "forums".* FROM "forums"
+  Rendered forums/index.html.erb within layouts/application (27.3ms)
+Completed 200 OK in 898ms (Views: 826.3ms | ActiveRecord: 25.5ms)
+
+
+Started GET "/assets/forums.css?body=1" for 127.0.0.1 at 2016-04-13 12:01:05 +0530
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2016-04-13 12:01:05 +0530
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2016-04-13 12:01:05 +0530
+
+
+Started GET "/assets/forums.js?body=1" for 127.0.0.1 at 2016-04-13 12:01:05 +0530
+
+
+Started GET "/assets/scaffolds.css?body=1" for 127.0.0.1 at 2016-04-13 12:01:05 +0530
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2016-04-13 12:01:05 +0530
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2016-04-13 12:01:05 +0530
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2016-04-13 12:01:05 +0530
+
+
+Started GET "/forums/new" for 127.0.0.1 at 2016-04-13 12:05:03 +0530
+Processing by ForumsController#new as HTML
+  Rendered forums/_form.html.erb (12.6ms)
+  Rendered forums/new.html.erb within layouts/application (15.1ms)
+Completed 200 OK in 86ms (Views: 45.7ms | ActiveRecord: 38.6ms)
+
+
+Started GET "/" for 127.0.0.1 at 2016-07-19 16:56:37 +0530
+  [1m[36mActiveRecord::SchemaMigration Load (28.4ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by Rails::WelcomeController#index as HTML
+  Rendered /home/sunil/.rvm/gems/ruby-2.1.4/gems/railties-4.1.6/lib/rails/templates/rails/welcome/index.html.erb (12.2ms)
+Completed 200 OK in 113ms (Views: 78.7ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/blogs" for 127.0.0.1 at 2016-07-19 16:56:59 +0530
+
+ActionController::RoutingError (No route matches [GET] "/blogs"):
+  actionpack (4.1.6) lib/action_dispatch/middleware/debug_exceptions.rb:21:in `call'
+  actionpack (4.1.6) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.1.6) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.1.6) lib/rails/rack/logger.rb:20:in `block in call'
+  activesupport (4.1.6) lib/active_support/tagged_logging.rb:68:in `block in tagged'
+  activesupport (4.1.6) lib/active_support/tagged_logging.rb:26:in `tagged'
+  activesupport (4.1.6) lib/active_support/tagged_logging.rb:68:in `tagged'
+  railties (4.1.6) lib/rails/rack/logger.rb:20:in `call'
+  actionpack (4.1.6) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.5.5) lib/rack/methodoverride.rb:21:in `call'
+  rack (1.5.5) lib/rack/runtime.rb:17:in `call'
+  activesupport (4.1.6) lib/active_support/cache/strategy/local_cache_middleware.rb:26:in `call'
+  rack (1.5.5) lib/rack/lock.rb:17:in `call'
+  actionpack (4.1.6) lib/action_dispatch/middleware/static.rb:64:in `call'
+  rack (1.5.5) lib/rack/sendfile.rb:112:in `call'
+  railties (4.1.6) lib/rails/engine.rb:514:in `call'
+  railties (4.1.6) lib/rails/application.rb:144:in `call'
+  rack (1.5.5) lib/rack/lock.rb:17:in `call'
+  rack (1.5.5) lib/rack/content_length.rb:14:in `call'
+  rack (1.5.5) lib/rack/handler/webrick.rb:60:in `service'
+  /home/sunil/.rvm/rubies/ruby-2.1.4/lib/ruby/2.1.0/webrick/httpserver.rb:138:in `service'
+  /home/sunil/.rvm/rubies/ruby-2.1.4/lib/ruby/2.1.0/webrick/httpserver.rb:94:in `run'
+  /home/sunil/.rvm/rubies/ruby-2.1.4/lib/ruby/2.1.0/webrick/server.rb:295:in `block in start_thread'
+
+
+  Rendered /home/sunil/.rvm/gems/ruby-2.1.4/gems/actionpack-4.1.6/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (0.8ms)
+  Rendered /home/sunil/.rvm/gems/ruby-2.1.4/gems/actionpack-4.1.6/lib/action_dispatch/middleware/templates/routes/_route.html.erb (1.1ms)
+  Rendered /home/sunil/.rvm/gems/ruby-2.1.4/gems/actionpack-4.1.6/lib/action_dispatch/middleware/templates/routes/_table.html.erb (38.3ms)
+  Rendered /home/sunil/.rvm/gems/ruby-2.1.4/gems/actionpack-4.1.6/lib/action_dispatch/middleware/templates/rescues/routing_error.html.erb within rescues/layout (70.9ms)
+
+
+Started GET "/blog" for 127.0.0.1 at 2016-07-19 16:57:05 +0530
+
+ActionController::RoutingError (No route matches [GET] "/blog"):
+  actionpack (4.1.6) lib/action_dispatch/middleware/debug_exceptions.rb:21:in `call'
+  actionpack (4.1.6) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.1.6) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.1.6) lib/rails/rack/logger.rb:20:in `block in call'
+  activesupport (4.1.6) lib/active_support/tagged_logging.rb:68:in `block in tagged'
+  activesupport (4.1.6) lib/active_support/tagged_logging.rb:26:in `tagged'
+  activesupport (4.1.6) lib/active_support/tagged_logging.rb:68:in `tagged'
+  railties (4.1.6) lib/rails/rack/logger.rb:20:in `call'
+  actionpack (4.1.6) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.5.5) lib/rack/methodoverride.rb:21:in `call'
+  rack (1.5.5) lib/rack/runtime.rb:17:in `call'
+  activesupport (4.1.6) lib/active_support/cache/strategy/local_cache_middleware.rb:26:in `call'
+  rack (1.5.5) lib/rack/lock.rb:17:in `call'
+  actionpack (4.1.6) lib/action_dispatch/middleware/static.rb:64:in `call'
+  rack (1.5.5) lib/rack/sendfile.rb:112:in `call'
+  railties (4.1.6) lib/rails/engine.rb:514:in `call'
+  railties (4.1.6) lib/rails/application.rb:144:in `call'
+  rack (1.5.5) lib/rack/lock.rb:17:in `call'
+  rack (1.5.5) lib/rack/content_length.rb:14:in `call'
+  rack (1.5.5) lib/rack/handler/webrick.rb:60:in `service'
+  /home/sunil/.rvm/rubies/ruby-2.1.4/lib/ruby/2.1.0/webrick/httpserver.rb:138:in `service'
+  /home/sunil/.rvm/rubies/ruby-2.1.4/lib/ruby/2.1.0/webrick/httpserver.rb:94:in `run'
+  /home/sunil/.rvm/rubies/ruby-2.1.4/lib/ruby/2.1.0/webrick/server.rb:295:in `block in start_thread'
+
+
+  Rendered /home/sunil/.rvm/gems/ruby-2.1.4/gems/actionpack-4.1.6/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.4ms)
+  Rendered /home/sunil/.rvm/gems/ruby-2.1.4/gems/actionpack-4.1.6/lib/action_dispatch/middleware/templates/routes/_route.html.erb (0.9ms)
+  Rendered /home/sunil/.rvm/gems/ruby-2.1.4/gems/actionpack-4.1.6/lib/action_dispatch/middleware/templates/routes/_table.html.erb (0.8ms)
+  Rendered /home/sunil/.rvm/gems/ruby-2.1.4/gems/actionpack-4.1.6/lib/action_dispatch/middleware/templates/rescues/routing_error.html.erb within rescues/layout (18.0ms)
+
+
+Started GET "/flrums" for 127.0.0.1 at 2016-07-19 16:57:25 +0530
+
+ActionController::RoutingError (No route matches [GET] "/flrums"):
+  actionpack (4.1.6) lib/action_dispatch/middleware/debug_exceptions.rb:21:in `call'
+  actionpack (4.1.6) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.1.6) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.1.6) lib/rails/rack/logger.rb:20:in `block in call'
+  activesupport (4.1.6) lib/active_support/tagged_logging.rb:68:in `block in tagged'
+  activesupport (4.1.6) lib/active_support/tagged_logging.rb:26:in `tagged'
+  activesupport (4.1.6) lib/active_support/tagged_logging.rb:68:in `tagged'
+  railties (4.1.6) lib/rails/rack/logger.rb:20:in `call'
+  actionpack (4.1.6) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.5.5) lib/rack/methodoverride.rb:21:in `call'
+  rack (1.5.5) lib/rack/runtime.rb:17:in `call'
+  activesupport (4.1.6) lib/active_support/cache/strategy/local_cache_middleware.rb:26:in `call'
+  rack (1.5.5) lib/rack/lock.rb:17:in `call'
+  actionpack (4.1.6) lib/action_dispatch/middleware/static.rb:64:in `call'
+  rack (1.5.5) lib/rack/sendfile.rb:112:in `call'
+  railties (4.1.6) lib/rails/engine.rb:514:in `call'
+  railties (4.1.6) lib/rails/application.rb:144:in `call'
+  rack (1.5.5) lib/rack/lock.rb:17:in `call'
+  rack (1.5.5) lib/rack/content_length.rb:14:in `call'
+  rack (1.5.5) lib/rack/handler/webrick.rb:60:in `service'
+  /home/sunil/.rvm/rubies/ruby-2.1.4/lib/ruby/2.1.0/webrick/httpserver.rb:138:in `service'
+  /home/sunil/.rvm/rubies/ruby-2.1.4/lib/ruby/2.1.0/webrick/httpserver.rb:94:in `run'
+  /home/sunil/.rvm/rubies/ruby-2.1.4/lib/ruby/2.1.0/webrick/server.rb:295:in `block in start_thread'
+
+
+  Rendered /home/sunil/.rvm/gems/ruby-2.1.4/gems/actionpack-4.1.6/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.0ms)
+  Rendered /home/sunil/.rvm/gems/ruby-2.1.4/gems/actionpack-4.1.6/lib/action_dispatch/middleware/templates/routes/_route.html.erb (2.3ms)
+  Rendered /home/sunil/.rvm/gems/ruby-2.1.4/gems/actionpack-4.1.6/lib/action_dispatch/middleware/templates/routes/_table.html.erb (1.2ms)
+  Rendered /home/sunil/.rvm/gems/ruby-2.1.4/gems/actionpack-4.1.6/lib/action_dispatch/middleware/templates/rescues/routing_error.html.erb within rescues/layout (22.0ms)
+
+
+Started GET "/forums" for 127.0.0.1 at 2016-07-19 16:57:31 +0530
+Processing by ForumsController#index as HTML
+  [1m[35mForum Load (24.9ms)[0m  SELECT "forums".* FROM "forums"
+  Rendered forums/index.html.erb within layouts/application (68.4ms)
+Completed 200 OK in 324ms (Views: 259.8ms | ActiveRecord: 56.2ms)
+
+
+Started GET "/assets/forums.css?body=1" for 127.0.0.1 at 2016-07-19 16:57:31 +0530
+
+
+Started GET "/assets/scaffolds.css?body=1" for 127.0.0.1 at 2016-07-19 16:57:31 +0530
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2016-07-19 16:57:31 +0530
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2016-07-19 16:57:31 +0530
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2016-07-19 16:57:31 +0530
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2016-07-19 16:57:31 +0530
+
+
+Started GET "/assets/forums.js?body=1" for 127.0.0.1 at 2016-07-19 16:57:31 +0530
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2016-07-19 16:57:31 +0530
+
+
+Started GET "/tenants" for 127.0.0.1 at 2016-07-19 17:33:14 +0530
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+
+ActiveRecord::PendingMigrationError (
+
+Migrations are pending. To resolve this issue, run:
+
+	bin/rake db:migrate RAILS_ENV=development
+
+):
+  activerecord (4.1.6) lib/active_record/migration.rb:389:in `check_pending!'
+  activerecord (4.1.6) lib/active_record/migration.rb:377:in `call'
+  actionpack (4.1.6) lib/action_dispatch/middleware/callbacks.rb:29:in `block in call'
+  activesupport (4.1.6) lib/active_support/callbacks.rb:82:in `run_callbacks'
+  actionpack (4.1.6) lib/action_dispatch/middleware/callbacks.rb:27:in `call'
+  actionpack (4.1.6) lib/action_dispatch/middleware/reloader.rb:73:in `call'
+  actionpack (4.1.6) lib/action_dispatch/middleware/remote_ip.rb:76:in `call'
+  actionpack (4.1.6) lib/action_dispatch/middleware/debug_exceptions.rb:17:in `call'
+  actionpack (4.1.6) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.1.6) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.1.6) lib/rails/rack/logger.rb:20:in `block in call'
+  activesupport (4.1.6) lib/active_support/tagged_logging.rb:68:in `block in tagged'
+  activesupport (4.1.6) lib/active_support/tagged_logging.rb:26:in `tagged'
+  activesupport (4.1.6) lib/active_support/tagged_logging.rb:68:in `tagged'
+  railties (4.1.6) lib/rails/rack/logger.rb:20:in `call'
+  actionpack (4.1.6) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.5.5) lib/rack/methodoverride.rb:21:in `call'
+  rack (1.5.5) lib/rack/runtime.rb:17:in `call'
+  activesupport (4.1.6) lib/active_support/cache/strategy/local_cache_middleware.rb:26:in `call'
+  rack (1.5.5) lib/rack/lock.rb:17:in `call'
+  actionpack (4.1.6) lib/action_dispatch/middleware/static.rb:64:in `call'
+  rack (1.5.5) lib/rack/sendfile.rb:112:in `call'
+  railties (4.1.6) lib/rails/engine.rb:514:in `call'
+  railties (4.1.6) lib/rails/application.rb:144:in `call'
+  rack (1.5.5) lib/rack/lock.rb:17:in `call'
+  rack (1.5.5) lib/rack/content_length.rb:14:in `call'
+  rack (1.5.5) lib/rack/handler/webrick.rb:60:in `service'
+  /home/sunil/.rvm/rubies/ruby-2.1.4/lib/ruby/2.1.0/webrick/httpserver.rb:138:in `service'
+  /home/sunil/.rvm/rubies/ruby-2.1.4/lib/ruby/2.1.0/webrick/httpserver.rb:94:in `run'
+  /home/sunil/.rvm/rubies/ruby-2.1.4/lib/ruby/2.1.0/webrick/server.rb:295:in `block in start_thread'
+
+
+  Rendered /home/sunil/.rvm/gems/ruby-2.1.4/gems/actionpack-4.1.6/lib/action_dispatch/middleware/templates/rescues/_source.erb (0.7ms)
+  Rendered /home/sunil/.rvm/gems/ruby-2.1.4/gems/actionpack-4.1.6/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (0.9ms)
+  Rendered /home/sunil/.rvm/gems/ruby-2.1.4/gems/actionpack-4.1.6/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (0.7ms)
+  Rendered /home/sunil/.rvm/gems/ruby-2.1.4/gems/actionpack-4.1.6/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (12.5ms)
+  [1m[36mActiveRecord::SchemaMigration Load (0.4ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Migrating to CreateTenants (20160719120246)
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36m (331.6ms)[0m  [1mCREATE TABLE "tenants" ("id" serial primary key, "name" character varying(255), "created_at" timestamp, "updated_at" timestamp) [0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES ($1)  [["version", "20160719120246"]]
+  [1m[36m (15.8ms)[0m  [1mCOMMIT[0m
+  [1m[35mActiveRecord::SchemaMigration Load (0.2ms)[0m  SELECT "schema_migrations".* FROM "schema_migrations"
+  [1m[36mActiveRecord::SchemaMigration Load (0.4ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35mActiveRecord::SchemaMigration Load (0.2ms)[0m  SELECT "schema_migrations".* FROM "schema_migrations"
+
+
+Started GET "/tenants" for 127.0.0.1 at 2016-07-19 17:40:29 +0530
+  [1m[35mActiveRecord::SchemaMigration Load (0.2ms)[0m  SELECT "schema_migrations".* FROM "schema_migrations"
+Processing by TenantsController#index as HTML
+  [1m[36mTenant Load (0.5ms)[0m  [1mSELECT "tenants".* FROM "tenants"[0m
+  Rendered tenants/index.html.erb within layouts/application (1.7ms)
+Completed 200 OK in 482ms (Views: 479.5ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/assets/tenants.css?body=1" for 127.0.0.1 at 2016-07-19 17:40:29 +0530
+
+
+Started GET "/assets/tenants.js?body=1" for 127.0.0.1 at 2016-07-19 17:40:29 +0530
+
+
+Started GET "/tenants/new" for 127.0.0.1 at 2016-07-19 17:44:40 +0530
+Processing by TenantsController#new as HTML
+  Rendered tenants/_form.html.erb (69.8ms)
+  Rendered tenants/new.html.erb within layouts/application (70.7ms)
+Completed 500 Internal Server Error in 75ms
+
+ActionView::Template::Error (First argument in form cannot contain nil or be empty):
+    17: <% end %>
+    18: 
+    19: 
+    20: <%= form_for(@forum) do |f| %>
+    21:   <% if @forum.errors.any? %>
+    22:     <div id="error_explanation">
+    23:       <h2><%= pluralize(@forum.errors.count, "error") %> prohibited this forum from being saved:</h2>
+  app/views/tenants/_form.html.erb:20:in `_app_views_tenants__form_html_erb__3441960729806684223_69874119483680'
+  app/views/tenants/new.html.erb:3:in `_app_views_tenants_new_html_erb___1286991193836671543_69874119505940'
+
+
+  Rendered /home/sunil/.rvm/gems/ruby-2.1.4/gems/actionpack-4.1.6/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.0ms)
+  Rendered /home/sunil/.rvm/gems/ruby-2.1.4/gems/actionpack-4.1.6/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (0.7ms)
+  Rendered /home/sunil/.rvm/gems/ruby-2.1.4/gems/actionpack-4.1.6/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout (8.5ms)
+
+
+Started GET "/tenants/new" for 127.0.0.1 at 2016-07-19 17:44:40 +0530
+Processing by TenantsController#new as HTML
+  Rendered tenants/_form.html.erb (1.7ms)
+  Rendered tenants/new.html.erb within layouts/application (2.4ms)
+Completed 500 Internal Server Error in 4ms
+
+ActionView::Template::Error (First argument in form cannot contain nil or be empty):
+    17: <% end %>
+    18: 
+    19: 
+    20: <%= form_for(@forum) do |f| %>
+    21:   <% if @forum.errors.any? %>
+    22:     <div id="error_explanation">
+    23:       <h2><%= pluralize(@forum.errors.count, "error") %> prohibited this forum from being saved:</h2>
+  app/views/tenants/_form.html.erb:20:in `_app_views_tenants__form_html_erb__3441960729806684223_39775520'
+  app/views/tenants/new.html.erb:3:in `_app_views_tenants_new_html_erb___1286991193836671543_39797740'
+
+
+  Rendered /home/sunil/.rvm/gems/ruby-2.1.4/gems/actionpack-4.1.6/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.1ms)
+  Rendered /home/sunil/.rvm/gems/ruby-2.1.4/gems/actionpack-4.1.6/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.1ms)
+  Rendered /home/sunil/.rvm/gems/ruby-2.1.4/gems/actionpack-4.1.6/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout (9.5ms)
+
+
+Started GET "/tenants/new" for 127.0.0.1 at 2016-07-19 17:45:14 +0530
+Processing by TenantsController#new as HTML
+  Rendered tenants/_form.html.erb (3.9ms)
+  Rendered tenants/new.html.erb within layouts/application (4.6ms)
+Completed 200 OK in 45ms (Views: 44.0ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/forums.css?body=1" for 127.0.0.1 at 2016-07-19 17:45:14 +0530
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2016-07-19 17:45:14 +0530
+
+
+Started GET "/assets/scaffolds.css?body=1" for 127.0.0.1 at 2016-07-19 17:45:14 +0530
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2016-07-19 17:45:15 +0530
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2016-07-19 17:45:15 +0530
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2016-07-19 17:45:15 +0530
+
+
+Started GET "/assets/tenants.css?body=1" for 127.0.0.1 at 2016-07-19 17:45:15 +0530
+
+
+Started GET "/assets/forums.js?body=1" for 127.0.0.1 at 2016-07-19 17:45:15 +0530
+
+
+Started GET "/assets/tenants.js?body=1" for 127.0.0.1 at 2016-07-19 17:45:15 +0530
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2016-07-19 17:45:15 +0530
+
+
+Started POST "/tenants" for 127.0.0.1 at 2016-07-19 17:45:23 +0530
+Processing by TenantsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"bba2Wtjd/q86VameICVhKPGejMIe9c1igNzGcS32U2E=", "tenant"=>{"name"=>"harbinger"}, "commit"=>"Create Tenant"}
+Completed 500 Internal Server Error in 1ms
+
+ActiveModel::ForbiddenAttributesError (ActiveModel::ForbiddenAttributesError):
+  app/controllers/tenants_controller.rb:27:in `create'
+
+
+  Rendered /home/sunil/.rvm/gems/ruby-2.1.4/gems/actionpack-4.1.6/lib/action_dispatch/middleware/templates/rescues/_source.erb (0.6ms)
+  Rendered /home/sunil/.rvm/gems/ruby-2.1.4/gems/actionpack-4.1.6/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (2.9ms)
+  Rendered /home/sunil/.rvm/gems/ruby-2.1.4/gems/actionpack-4.1.6/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (0.9ms)
+  Rendered /home/sunil/.rvm/gems/ruby-2.1.4/gems/actionpack-4.1.6/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (20.5ms)
+
+
+Started POST "/tenants" for 127.0.0.1 at 2016-07-19 17:49:14 +0530
+Processing by TenantsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"bba2Wtjd/q86VameICVhKPGejMIe9c1igNzGcS32U2E=", "tenant"=>{"name"=>"harbinger"}, "commit"=>"Create Tenant"}
+Unpermitted parameters: name
+Completed 500 Internal Server Error in 5ms
+
+NameError (uninitialized constant TenantsController::Apartment):
+  app/controllers/tenants_controller.rb:28:in `create'
+
+
+  Rendered /home/sunil/.rvm/gems/ruby-2.1.4/gems/actionpack-4.1.6/lib/action_dispatch/middleware/templates/rescues/_source.erb (0.4ms)
+  Rendered /home/sunil/.rvm/gems/ruby-2.1.4/gems/actionpack-4.1.6/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (0.9ms)
+  Rendered /home/sunil/.rvm/gems/ruby-2.1.4/gems/actionpack-4.1.6/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (0.8ms)
+  Rendered /home/sunil/.rvm/gems/ruby-2.1.4/gems/actionpack-4.1.6/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (11.0ms)
+
+
+Started POST "/tenants" for 127.0.0.1 at 2016-07-19 17:55:59 +0530
+Processing by TenantsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"bba2Wtjd/q86VameICVhKPGejMIe9c1igNzGcS32U2E=", "tenant"=>{"name"=>"harbinger"}, "commit"=>"Create Tenant"}
+Unpermitted parameters: name
+Completed 500 Internal Server Error in 5ms
+
+NameError (uninitialized constant TenantsController::Apartment):
+  app/controllers/tenants_controller.rb:28:in `create'
+
+
+  Rendered /home/sunil/.rvm/gems/ruby-2.1.4/gems/actionpack-4.1.6/lib/action_dispatch/middleware/templates/rescues/_source.erb (0.6ms)
+  Rendered /home/sunil/.rvm/gems/ruby-2.1.4/gems/actionpack-4.1.6/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.1ms)
+  Rendered /home/sunil/.rvm/gems/ruby-2.1.4/gems/actionpack-4.1.6/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.2ms)
+  Rendered /home/sunil/.rvm/gems/ruby-2.1.4/gems/actionpack-4.1.6/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (14.4ms)
+
+
+Started POST "/tenants" for 127.0.0.1 at 2016-07-19 18:49:47 +0530
+  [1m[36mActiveRecord::SchemaMigration Load (0.6ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by TenantsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"bba2Wtjd/q86VameICVhKPGejMIe9c1igNzGcS32U2E=", "tenant"=>{"name"=>"harbinger"}, "commit"=>"Create Tenant"}
+Unpermitted parameters: name
+  [1m[35m (0.4ms)[0m  CREATE SCHEMA ""
+PG::SyntaxError: ERROR:  zero-length delimited identifier at or near """"
+LINE 1: CREATE SCHEMA ""
+                      ^
+: CREATE SCHEMA ""
+Completed 500 Internal Server Error in 32ms
+
+NoMethodError (undefined method `include?' for nil:NilClass):
+  app/controllers/tenants_controller.rb:28:in `create'
+
+
+  Rendered /home/sunil/.rvm/gems/ruby-2.1.4/gems/actionpack-4.1.6/lib/action_dispatch/middleware/templates/rescues/_source.erb (0.7ms)
+  Rendered /home/sunil/.rvm/gems/ruby-2.1.4/gems/actionpack-4.1.6/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (2.6ms)
+  Rendered /home/sunil/.rvm/gems/ruby-2.1.4/gems/actionpack-4.1.6/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.0ms)
+  Rendered /home/sunil/.rvm/gems/ruby-2.1.4/gems/actionpack-4.1.6/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (18.2ms)
+
+
+Started GET "/" for 127.0.0.1 at 2016-07-20 16:50:43 +0530
+  [1m[36mActiveRecord::SchemaMigration Load (40.7ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by Rails::WelcomeController#index as HTML
+  Rendered /home/sunil/.rvm/gems/ruby-2.1.4/gems/railties-4.1.6/lib/rails/templates/rails/welcome/index.html.erb (2.0ms)
+Completed 200 OK in 118ms (Views: 87.8ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/tenants" for 127.0.0.1 at 2016-07-20 16:50:53 +0530
+Processing by TenantsController#index as HTML
+  [1m[35mTenant Load (107.4ms)[0m  SELECT "tenants".* FROM "tenants"
+  Rendered tenants/index.html.erb within layouts/application (109.1ms)
+Completed 200 OK in 584ms (Views: 439.9ms | ActiveRecord: 107.4ms)
+
+
+Started GET "/assets/scaffolds.css?body=1" for 127.0.0.1 at 2016-07-20 16:50:54 +0530
+
+
+Started GET "/assets/forums.css?body=1" for 127.0.0.1 at 2016-07-20 16:50:54 +0530
+
+
+Started GET "/assets/tenants.css?body=1" for 127.0.0.1 at 2016-07-20 16:50:54 +0530
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2016-07-20 16:50:54 +0530
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2016-07-20 16:50:54 +0530
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2016-07-20 16:50:54 +0530
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2016-07-20 16:50:54 +0530
+
+
+Started GET "/assets/forums.js?body=1" for 127.0.0.1 at 2016-07-20 16:50:54 +0530
+
+
+Started GET "/assets/tenants.js?body=1" for 127.0.0.1 at 2016-07-20 16:50:54 +0530
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2016-07-20 16:50:54 +0530
+
+
+Started GET "/tenants/new" for 127.0.0.1 at 2016-07-20 16:50:55 +0530
+Processing by TenantsController#new as HTML
+  Rendered tenants/_form.html.erb (104.0ms)
+  Rendered tenants/new.html.erb within layouts/application (147.1ms)
+Completed 200 OK in 250ms (Views: 203.4ms | ActiveRecord: 45.3ms)
+
+
+Started POST "/tenants" for 127.0.0.1 at 2016-07-20 16:51:05 +0530
+Processing by TenantsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"xAnRqp01XpXT4RNIlQplJwttzmLrcrvTxxCd0orecRI=", "tenant"=>{"name"=>"aa"}, "commit"=>"Create Tenant"}
+Unpermitted parameters: name
+  [1m[36m (0.6ms)[0m  [1mCREATE SCHEMA ""[0m
+PG::SyntaxError: ERROR:  zero-length delimited identifier at or near """"
+LINE 1: CREATE SCHEMA ""
+                      ^
+: CREATE SCHEMA ""
+Completed 500 Internal Server Error in 22ms
+
+NoMethodError (undefined method `include?' for nil:NilClass):
+  app/controllers/tenants_controller.rb:28:in `create'
+
+
+  Rendered /home/sunil/.rvm/gems/ruby-2.1.4/gems/actionpack-4.1.6/lib/action_dispatch/middleware/templates/rescues/_source.erb (0.8ms)
+  Rendered /home/sunil/.rvm/gems/ruby-2.1.4/gems/actionpack-4.1.6/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (0.9ms)
+  Rendered /home/sunil/.rvm/gems/ruby-2.1.4/gems/actionpack-4.1.6/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (0.8ms)
+  Rendered /home/sunil/.rvm/gems/ruby-2.1.4/gems/actionpack-4.1.6/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (14.0ms)
+
+
+Started POST "/tenants" for 127.0.0.1 at 2016-07-20 16:52:01 +0530
+Processing by TenantsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"xAnRqp01XpXT4RNIlQplJwttzmLrcrvTxxCd0orecRI=", "tenant"=>{"name"=>"aa"}, "commit"=>"Create Tenant"}
+Unpermitted parameters: name
+  [1m[35m (0.6ms)[0m  CREATE SCHEMA ""
+PG::SyntaxError: ERROR:  zero-length delimited identifier at or near """"
+LINE 1: CREATE SCHEMA ""
+                      ^
+: CREATE SCHEMA ""
+Completed 500 Internal Server Error in 41ms
+
+NoMethodError (undefined method `include?' for nil:NilClass):
+  app/controllers/tenants_controller.rb:29:in `create'
+
+
+  Rendered /home/sunil/.rvm/gems/ruby-2.1.4/gems/actionpack-4.1.6/lib/action_dispatch/middleware/templates/rescues/_source.erb (0.7ms)
+  Rendered /home/sunil/.rvm/gems/ruby-2.1.4/gems/actionpack-4.1.6/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.0ms)
+  Rendered /home/sunil/.rvm/gems/ruby-2.1.4/gems/actionpack-4.1.6/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.1ms)
+  Rendered /home/sunil/.rvm/gems/ruby-2.1.4/gems/actionpack-4.1.6/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (13.2ms)
+
+
+Started POST "/tenants" for 127.0.0.1 at 2016-07-20 16:52:55 +0530
+Processing by TenantsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"xAnRqp01XpXT4RNIlQplJwttzmLrcrvTxxCd0orecRI=", "tenant"=>{"name"=>"aa"}, "commit"=>"Create Tenant"}
+Unpermitted parameters: name
+  [1m[36m (0.9ms)[0m  [1mCREATE SCHEMA ""[0m
+PG::SyntaxError: ERROR:  zero-length delimited identifier at or near """"
+LINE 1: CREATE SCHEMA ""
+                      ^
+: CREATE SCHEMA ""
+Completed 500 Internal Server Error in 43ms
+
+NoMethodError (undefined method `include?' for nil:NilClass):
+  app/controllers/tenants_controller.rb:29:in `create'
+
+
+  Rendered /home/sunil/.rvm/gems/ruby-2.1.4/gems/actionpack-4.1.6/lib/action_dispatch/middleware/templates/rescues/_source.erb (0.9ms)
+  Rendered /home/sunil/.rvm/gems/ruby-2.1.4/gems/actionpack-4.1.6/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.2ms)
+  Rendered /home/sunil/.rvm/gems/ruby-2.1.4/gems/actionpack-4.1.6/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (0.8ms)
+  Rendered /home/sunil/.rvm/gems/ruby-2.1.4/gems/actionpack-4.1.6/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (13.1ms)
+
+
+Started POST "/tenants" for 127.0.0.1 at 2016-07-20 16:53:27 +0530
+Processing by TenantsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"xAnRqp01XpXT4RNIlQplJwttzmLrcrvTxxCd0orecRI=", "tenant"=>{"name"=>"aa"}, "commit"=>"Create Tenant"}
+Unpermitted parameters: name
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36mSQL (31.6ms)[0m  [1mINSERT INTO "tenants" ("created_at", "updated_at") VALUES ($1, $2) RETURNING "id"[0m  [["created_at", "2016-07-20 11:23:27.691193"], ["updated_at", "2016-07-20 11:23:27.691193"]]
+  [1m[35m (45.7ms)[0m  COMMIT
+  [1m[36m (0.6ms)[0m  [1mCREATE SCHEMA ""[0m
+PG::SyntaxError: ERROR:  zero-length delimited identifier at or near """"
+LINE 1: CREATE SCHEMA ""
+                      ^
+: CREATE SCHEMA ""
+Completed 500 Internal Server Error in 161ms
+
+NoMethodError (undefined method `include?' for nil:NilClass):
+  app/controllers/tenants_controller.rb:32:in `block in create'
+  app/controllers/tenants_controller.rb:30:in `create'
+
+
+  Rendered /home/sunil/.rvm/gems/ruby-2.1.4/gems/actionpack-4.1.6/lib/action_dispatch/middleware/templates/rescues/_source.erb (0.6ms)
+  Rendered /home/sunil/.rvm/gems/ruby-2.1.4/gems/actionpack-4.1.6/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.1ms)
+  Rendered /home/sunil/.rvm/gems/ruby-2.1.4/gems/actionpack-4.1.6/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.2ms)
+  Rendered /home/sunil/.rvm/gems/ruby-2.1.4/gems/actionpack-4.1.6/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (12.6ms)
+
+
+Started POST "/tenants" for 127.0.0.1 at 2016-07-20 16:54:05 +0530
+Processing by TenantsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"xAnRqp01XpXT4RNIlQplJwttzmLrcrvTxxCd0orecRI=", "tenant"=>{"name"=>"aa"}, "commit"=>"Create Tenant"}
+Unpermitted parameters: name
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "tenants" ("created_at", "updated_at") VALUES ($1, $2) RETURNING "id"[0m  [["created_at", "2016-07-20 11:24:06.026895"], ["updated_at", "2016-07-20 11:24:06.026895"]]
+  [1m[35m (21.0ms)[0m  COMMIT
+  [1m[36m (0.6ms)[0m  [1mCREATE SCHEMA ""[0m
+PG::SyntaxError: ERROR:  zero-length delimited identifier at or near """"
+LINE 1: CREATE SCHEMA ""
+                      ^
+: CREATE SCHEMA ""
+Completed 500 Internal Server Error in 65ms
+
+NoMethodError (undefined method `include?' for nil:NilClass):
+  app/controllers/tenants_controller.rb:33:in `block in create'
+  app/controllers/tenants_controller.rb:30:in `create'
+
+
+  Rendered /home/sunil/.rvm/gems/ruby-2.1.4/gems/actionpack-4.1.6/lib/action_dispatch/middleware/templates/rescues/_source.erb (0.5ms)
+  Rendered /home/sunil/.rvm/gems/ruby-2.1.4/gems/actionpack-4.1.6/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.0ms)
+  Rendered /home/sunil/.rvm/gems/ruby-2.1.4/gems/actionpack-4.1.6/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.0ms)
+  Rendered /home/sunil/.rvm/gems/ruby-2.1.4/gems/actionpack-4.1.6/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (11.2ms)
+
+
+Started POST "/tenants" for 127.0.0.1 at 2016-07-20 16:54:44 +0530
+Processing by TenantsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"xAnRqp01XpXT4RNIlQplJwttzmLrcrvTxxCd0orecRI=", "tenant"=>{"name"=>"aa"}, "commit"=>"Create Tenant"}
+Unpermitted parameters: name
+Unpermitted parameters: name
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36mSQL (0.5ms)[0m  [1mINSERT INTO "tenants" ("created_at", "updated_at") VALUES ($1, $2) RETURNING "id"[0m  [["created_at", "2016-07-20 11:24:44.202287"], ["updated_at", "2016-07-20 11:24:44.202287"]]
+  [1m[35m (15.1ms)[0m  COMMIT
+  [1m[36m (0.5ms)[0m  [1mCREATE SCHEMA ""[0m
+PG::SyntaxError: ERROR:  zero-length delimited identifier at or near """"
+LINE 1: CREATE SCHEMA ""
+                      ^
+: CREATE SCHEMA ""
+Completed 500 Internal Server Error in 63ms
+
+NoMethodError (undefined method `include?' for nil:NilClass):
+  app/controllers/tenants_controller.rb:33:in `block in create'
+  app/controllers/tenants_controller.rb:30:in `create'
+
+
+  Rendered /home/sunil/.rvm/gems/ruby-2.1.4/gems/actionpack-4.1.6/lib/action_dispatch/middleware/templates/rescues/_source.erb (0.6ms)
+  Rendered /home/sunil/.rvm/gems/ruby-2.1.4/gems/actionpack-4.1.6/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (2.2ms)
+  Rendered /home/sunil/.rvm/gems/ruby-2.1.4/gems/actionpack-4.1.6/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.1ms)
+  Rendered /home/sunil/.rvm/gems/ruby-2.1.4/gems/actionpack-4.1.6/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (14.7ms)
+
+
+Started POST "/tenants" for 127.0.0.1 at 2016-07-20 16:55:21 +0530
+Processing by TenantsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"xAnRqp01XpXT4RNIlQplJwttzmLrcrvTxxCd0orecRI=", "tenant"=>{"name"=>"aa"}, "commit"=>"Create Tenant"}
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "tenants" ("created_at", "name", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["created_at", "2016-07-20 11:25:21.163134"], ["name", "aa"], ["updated_at", "2016-07-20 11:25:21.163134"]]
+  [1m[35m (16.2ms)[0m  COMMIT
+  [1m[36m (67.3ms)[0m  [1mCREATE SCHEMA "aa"[0m
+  [1m[35mSQL (44.6ms)[0m  CREATE EXTENSION IF NOT EXISTS "plpgsql"
+  [1m[36m (398.1ms)[0m  [1mCREATE TABLE "forums" ("id" serial primary key, "title" character varying(255), "description" text, "created_at" timestamp, "updated_at" timestamp) [0m
+  [1m[35m (63.7ms)[0m  CREATE TABLE "tenants" ("id" serial primary key, "name" character varying(255), "created_at" timestamp, "updated_at" timestamp) 
+  [1m[36m (8.1ms)[0m  [1mCREATE TABLE "schema_migrations" ("version" character varying(255) NOT NULL) [0m
+  [1m[35m (61.1ms)[0m  CREATE UNIQUE INDEX  "unique_schema_migrations" ON "schema_migrations"  ("version")
+  [1m[36m (0.7ms)[0m  [1mSELECT version FROM "schema_migrations"[0m
+  [1m[35m (9.7ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20160719120246')
+  [1m[36m (10.6ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20160112092613')[0m
+Redirected to http://localhost:3000/tenants/4
+Completed 302 Found in 768ms (ActiveRecord: 697.6ms)
+
+
+Started GET "/tenants/4" for 127.0.0.1 at 2016-07-20 16:55:21 +0530
+Processing by TenantsController#show as HTML
+  Parameters: {"id"=>"4"}
+  [1m[35mTenant Load (0.5ms)[0m  SELECT  "tenants".* FROM "tenants"  WHERE "tenants"."id" = $1 LIMIT 1  [["id", 4]]
+  Rendered tenants/show.html.erb within layouts/application (0.8ms)
+Completed 200 OK in 72ms (Views: 67.1ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/assets/forums.css?body=1" for 127.0.0.1 at 2016-07-20 16:55:22 +0530
+
+
+Started GET "/assets/scaffolds.css?body=1" for 127.0.0.1 at 2016-07-20 16:55:22 +0530
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2016-07-20 16:55:22 +0530
+
+
+Started GET "/assets/forums.js?body=1" for 127.0.0.1 at 2016-07-20 16:55:22 +0530
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2016-07-20 16:55:22 +0530
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2016-07-20 16:55:22 +0530
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2016-07-20 16:55:22 +0530
+
+
+Started GET "/assets/tenants.css?body=1" for 127.0.0.1 at 2016-07-20 16:55:22 +0530
+
+
+Started GET "/assets/tenants.js?body=1" for 127.0.0.1 at 2016-07-20 16:55:22 +0530
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2016-07-20 16:55:22 +0530
+
+
+Started GET "/tenants" for 127.0.0.1 at 2016-07-20 16:55:24 +0530
+Processing by TenantsController#index as HTML
+  [1m[36mTenant Load (0.3ms)[0m  [1mSELECT "tenants".* FROM "tenants"[0m
+  Rendered tenants/index.html.erb within layouts/application (2.3ms)
+Completed 200 OK in 43ms (Views: 42.3ms | ActiveRecord: 0.3ms)
+
+
+Started DELETE "/tenants/1" for 127.0.0.1 at 2016-07-20 16:55:29 +0530
+Processing by TenantsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"xAnRqp01XpXT4RNIlQplJwttzmLrcrvTxxCd0orecRI=", "id"=>"1"}
+  [1m[35mTenant Load (0.3ms)[0m  SELECT  "tenants".* FROM "tenants"  WHERE "tenants"."id" = $1 LIMIT 1  [["id", 1]]
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  DELETE FROM "tenants" WHERE "tenants"."id" = $1  [["id", 1]]
+  [1m[36m (24.7ms)[0m  [1mCOMMIT[0m
+Redirected to http://localhost:3000/tenants
+Completed 302 Found in 30ms (ActiveRecord: 25.4ms)
+
+
+Started GET "/tenants" for 127.0.0.1 at 2016-07-20 16:55:29 +0530
+Processing by TenantsController#index as HTML
+  [1m[35mTenant Load (0.5ms)[0m  SELECT "tenants".* FROM "tenants"
+  Rendered tenants/index.html.erb within layouts/application (3.2ms)
+Completed 200 OK in 54ms (Views: 52.2ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/assets/scaffolds.css?body=1" for 127.0.0.1 at 2016-07-20 16:55:30 +0530
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2016-07-20 16:55:30 +0530
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2016-07-20 16:55:30 +0530
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2016-07-20 16:55:30 +0530
+
+
+Started GET "/assets/forums.css?body=1" for 127.0.0.1 at 2016-07-20 16:55:30 +0530
+
+
+Started GET "/assets/tenants.css?body=1" for 127.0.0.1 at 2016-07-20 16:55:30 +0530
+
+
+Started GET "/assets/tenants.js?body=1" for 127.0.0.1 at 2016-07-20 16:55:30 +0530
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2016-07-20 16:55:30 +0530
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2016-07-20 16:55:30 +0530
+
+
+Started GET "/assets/forums.js?body=1" for 127.0.0.1 at 2016-07-20 16:55:30 +0530
+
+
+Started DELETE "/tenants/2" for 127.0.0.1 at 2016-07-20 16:55:33 +0530
+Processing by TenantsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"xAnRqp01XpXT4RNIlQplJwttzmLrcrvTxxCd0orecRI=", "id"=>"2"}
+  [1m[36mTenant Load (0.5ms)[0m  [1mSELECT  "tenants".* FROM "tenants"  WHERE "tenants"."id" = $1 LIMIT 1[0m  [["id", 2]]
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36mSQL (0.4ms)[0m  [1mDELETE FROM "tenants" WHERE "tenants"."id" = $1[0m  [["id", 2]]
+  [1m[35m (20.9ms)[0m  COMMIT
+Redirected to http://localhost:3000/tenants
+Completed 302 Found in 25ms (ActiveRecord: 22.0ms)
+
+
+Started GET "/tenants" for 127.0.0.1 at 2016-07-20 16:55:33 +0530
+Processing by TenantsController#index as HTML
+  [1m[36mTenant Load (0.5ms)[0m  [1mSELECT "tenants".* FROM "tenants"[0m
+  Rendered tenants/index.html.erb within layouts/application (2.4ms)
+Completed 200 OK in 44ms (Views: 42.5ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/assets/forums.css?body=1" for 127.0.0.1 at 2016-07-20 16:55:33 +0530
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2016-07-20 16:55:33 +0530
+
+
+Started GET "/assets/scaffolds.css?body=1" for 127.0.0.1 at 2016-07-20 16:55:33 +0530
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2016-07-20 16:55:33 +0530
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2016-07-20 16:55:33 +0530
+
+
+Started GET "/assets/tenants.css?body=1" for 127.0.0.1 at 2016-07-20 16:55:33 +0530
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2016-07-20 16:55:33 +0530
+
+
+Started GET "/assets/forums.js?body=1" for 127.0.0.1 at 2016-07-20 16:55:33 +0530
+
+
+Started GET "/assets/tenants.js?body=1" for 127.0.0.1 at 2016-07-20 16:55:33 +0530
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2016-07-20 16:55:33 +0530
+
+
+Started DELETE "/tenants/3" for 127.0.0.1 at 2016-07-20 16:55:37 +0530
+Processing by TenantsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"xAnRqp01XpXT4RNIlQplJwttzmLrcrvTxxCd0orecRI=", "id"=>"3"}
+  [1m[35mTenant Load (0.5ms)[0m  SELECT  "tenants".* FROM "tenants"  WHERE "tenants"."id" = $1 LIMIT 1  [["id", 3]]
+  [1m[36m (0.3ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.4ms)[0m  DELETE FROM "tenants" WHERE "tenants"."id" = $1  [["id", 3]]
+  [1m[36m (23.6ms)[0m  [1mCOMMIT[0m
+Redirected to http://localhost:3000/tenants
+Completed 302 Found in 30ms (ActiveRecord: 24.8ms)
+
+
+Started GET "/tenants" for 127.0.0.1 at 2016-07-20 16:55:37 +0530
+Processing by TenantsController#index as HTML
+  [1m[35mTenant Load (0.7ms)[0m  SELECT "tenants".* FROM "tenants"
+  Rendered tenants/index.html.erb within layouts/application (3.8ms)
+Completed 200 OK in 59ms (Views: 57.8ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/assets/forums.css?body=1" for 127.0.0.1 at 2016-07-20 16:55:37 +0530
+
+
+Started GET "/assets/scaffolds.css?body=1" for 127.0.0.1 at 2016-07-20 16:55:37 +0530
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2016-07-20 16:55:37 +0530
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2016-07-20 16:55:37 +0530
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2016-07-20 16:55:37 +0530
+
+
+Started GET "/assets/tenants.css?body=1" for 127.0.0.1 at 2016-07-20 16:55:37 +0530
+
+
+Started GET "/assets/forums.js?body=1" for 127.0.0.1 at 2016-07-20 16:55:37 +0530
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2016-07-20 16:55:37 +0530
+
+
+Started GET "/assets/tenants.js?body=1" for 127.0.0.1 at 2016-07-20 16:55:37 +0530
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2016-07-20 16:55:37 +0530
+
+
+Started GET "/tenants" for 127.0.0.1 at 2016-07-20 16:58:38 +0530
+Processing by TenantsController#index as HTML
+  [1m[36mTenant Load (0.3ms)[0m  [1mSELECT "tenants".* FROM "tenants"[0m
+  Rendered tenants/index.html.erb within layouts/application (6.4ms)
+Completed 200 OK in 45ms (Views: 41.2ms | ActiveRecord: 2.1ms)
+
+
+Started GET "/assets/forums.css?body=1" for 127.0.0.1 at 2016-07-20 16:58:38 +0530
+
+
+Started GET "/assets/scaffolds.css?body=1" for 127.0.0.1 at 2016-07-20 16:58:38 +0530
+
+
+Started GET "/assets/tenants.css?body=1" for 127.0.0.1 at 2016-07-20 16:58:38 +0530
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2016-07-20 16:58:39 +0530
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2016-07-20 16:58:39 +0530
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2016-07-20 16:58:39 +0530
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2016-07-20 16:58:39 +0530
+
+
+Started GET "/assets/tenants.js?body=1" for 127.0.0.1 at 2016-07-20 16:58:39 +0530
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2016-07-20 16:58:39 +0530
+
+
+Started GET "/assets/forums.js?body=1" for 127.0.0.1 at 2016-07-20 16:58:39 +0530
+
+
+Started GET "/tenants" for 127.0.0.1 at 2016-07-20 16:58:52 +0530
+Processing by TenantsController#index as HTML
+  [1m[35mTenant Load (0.3ms)[0m  SELECT "tenants".* FROM "tenants"
+  Rendered tenants/index.html.erb within layouts/application (1.1ms)
+Completed 200 OK in 46ms (Views: 45.0ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/assets/forums.css?body=1" for 127.0.0.1 at 2016-07-20 16:58:52 +0530
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2016-07-20 16:58:52 +0530
+
+
+Started GET "/assets/tenants.css?body=1" for 127.0.0.1 at 2016-07-20 16:58:52 +0530
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2016-07-20 16:58:52 +0530
+
+
+Started GET "/assets/scaffolds.css?body=1" for 127.0.0.1 at 2016-07-20 16:58:52 +0530
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2016-07-20 16:58:52 +0530
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2016-07-20 16:58:52 +0530
+
+
+Started GET "/assets/forums.js?body=1" for 127.0.0.1 at 2016-07-20 16:58:52 +0530
+
+
+Started GET "/assets/tenants.js?body=1" for 127.0.0.1 at 2016-07-20 16:58:52 +0530
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2016-07-20 16:58:52 +0530
+
+
+Started GET "/tenants" for 127.0.0.1 at 2016-07-20 16:58:59 +0530
+Processing by TenantsController#index as HTML
+  [1m[36mTenant Load (0.3ms)[0m  [1mSELECT "tenants".* FROM "tenants"[0m
+  Rendered tenants/index.html.erb within layouts/application (1.6ms)
+Completed 200 OK in 49ms (Views: 48.1ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/assets/forums.css?body=1" for 127.0.0.1 at 2016-07-20 16:58:59 +0530
+
+
+Started GET "/assets/tenants.css?body=1" for 127.0.0.1 at 2016-07-20 16:58:59 +0530
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2016-07-20 16:58:59 +0530
+
+
+Started GET "/assets/scaffolds.css?body=1" for 127.0.0.1 at 2016-07-20 16:58:59 +0530
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2016-07-20 16:58:59 +0530
+
+
+Started GET "/assets/tenants.js?body=1" for 127.0.0.1 at 2016-07-20 16:58:59 +0530
+
+
+Started GET "/assets/forums.js?body=1" for 127.0.0.1 at 2016-07-20 16:58:59 +0530
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2016-07-20 16:58:59 +0530
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2016-07-20 16:58:59 +0530
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2016-07-20 16:58:59 +0530
+
+
+Started GET "/tenants" for 127.0.0.1 at 2016-07-20 16:59:19 +0530
+Processing by TenantsController#index as HTML
+  [1m[35mTenant Load (0.3ms)[0m  SELECT "tenants".* FROM "tenants"
+  Rendered tenants/index.html.erb within layouts/application (1.7ms)
+Completed 200 OK in 47ms (Views: 46.4ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/assets/forums.css?body=1" for 127.0.0.1 at 2016-07-20 16:59:19 +0530
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2016-07-20 16:59:19 +0530
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2016-07-20 16:59:19 +0530
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2016-07-20 16:59:19 +0530
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2016-07-20 16:59:19 +0530
+
+
+Started GET "/assets/tenants.css?body=1" for 127.0.0.1 at 2016-07-20 16:59:19 +0530
+
+
+Started GET "/assets/scaffolds.css?body=1" for 127.0.0.1 at 2016-07-20 16:59:19 +0530
+
+
+Started GET "/assets/forums.js?body=1" for 127.0.0.1 at 2016-07-20 16:59:19 +0530
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2016-07-20 16:59:19 +0530
+
+
+Started GET "/assets/tenants.js?body=1" for 127.0.0.1 at 2016-07-20 16:59:19 +0530
+
+
+Started GET "/tenants" for 127.0.0.1 at 2016-07-20 17:00:46 +0530
+Processing by TenantsController#index as HTML
+  [1m[36mTenant Load (0.3ms)[0m  [1mSELECT "tenants".* FROM "tenants"[0m
+  Rendered tenants/index.html.erb within layouts/application (2.0ms)
+Completed 200 OK in 44ms (Views: 42.9ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/assets/forums.css?body=1" for 127.0.0.1 at 2016-07-20 17:00:46 +0530
+
+
+Started GET "/assets/scaffolds.css?body=1" for 127.0.0.1 at 2016-07-20 17:00:46 +0530
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2016-07-20 17:00:46 +0530
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2016-07-20 17:00:46 +0530
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2016-07-20 17:00:46 +0530
+
+
+Started GET "/assets/forums.js?body=1" for 127.0.0.1 at 2016-07-20 17:00:46 +0530
+
+
+Started GET "/assets/tenants.css?body=1" for 127.0.0.1 at 2016-07-20 17:00:46 +0530
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2016-07-20 17:00:46 +0530
+
+
+Started GET "/assets/tenants.js?body=1" for 127.0.0.1 at 2016-07-20 17:00:46 +0530
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2016-07-20 17:00:46 +0530
+
+
+Started GET "/tenants" for 127.0.0.1 at 2016-07-20 17:01:18 +0530
+Processing by TenantsController#index as HTML
+  [1m[35mTenant Load (0.4ms)[0m  SELECT "tenants".* FROM "tenants"
+  Rendered tenants/index.html.erb within layouts/application (2.5ms)
+Completed 200 OK in 47ms (Views: 45.5ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/assets/forums.css?body=1" for 127.0.0.1 at 2016-07-20 17:01:18 +0530
+
+
+Started GET "/assets/scaffolds.css?body=1" for 127.0.0.1 at 2016-07-20 17:01:18 +0530
+
+
+Started GET "/assets/tenants.css?body=1" for 127.0.0.1 at 2016-07-20 17:01:18 +0530
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2016-07-20 17:01:18 +0530
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2016-07-20 17:01:18 +0530
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2016-07-20 17:01:18 +0530
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2016-07-20 17:01:18 +0530
+
+
+Started GET "/assets/forums.js?body=1" for 127.0.0.1 at 2016-07-20 17:01:18 +0530
+
+
+Started GET "/assets/tenants.js?body=1" for 127.0.0.1 at 2016-07-20 17:01:18 +0530
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2016-07-20 17:01:18 +0530
+
+
+Started GET "/tenants/4" for 127.0.0.1 at 2016-07-20 17:01:47 +0530
+Processing by TenantsController#show as HTML
+  Parameters: {"id"=>"4"}
+  [1m[36mTenant Load (0.2ms)[0m  [1mSELECT  "tenants".* FROM "tenants"  WHERE "tenants"."id" = $1 LIMIT 1[0m  [["id", 4]]
+  Rendered tenants/show.html.erb within layouts/application (0.9ms)
+Completed 200 OK in 44ms (Views: 42.1ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/tenants" for 127.0.0.1 at 2016-07-20 17:02:20 +0530
+Processing by TenantsController#index as HTML
+  [1m[35mTenant Load (0.5ms)[0m  SELECT "tenants".* FROM "tenants"
+  Rendered tenants/index.html.erb within layouts/application (2.3ms)
+Completed 200 OK in 59ms (Views: 58.3ms | ActiveRecord: 0.5ms)
+
+
+Started DELETE "/tenants/4" for 127.0.0.1 at 2016-07-20 17:06:51 +0530
+Processing by TenantsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"v7kwYrKETS4Jf828URKa4MabWIG6ekhxSApwANlqAaU=", "id"=>"4"}
+  [1m[36mTenant Load (0.3ms)[0m  [1mSELECT  "tenants".* FROM "tenants"  WHERE "tenants"."id" = $1 LIMIT 1[0m  [["id", 4]]
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36mSQL (0.4ms)[0m  [1mDELETE FROM "tenants" WHERE "tenants"."id" = $1[0m  [["id", 4]]
+  [1m[35m (16.9ms)[0m  COMMIT
+  [1m[36m (58.8ms)[0m  [1mDROP SCHEMA "aa" CASCADE[0m
+Redirected to http://localhost:3000/tenants
+Completed 302 Found in 118ms (ActiveRecord: 87.0ms)
+
+
+Started GET "/tenants" for 127.0.0.1 at 2016-07-20 17:06:52 +0530
+Processing by TenantsController#index as HTML
+  [1m[35mTenant Load (0.5ms)[0m  SELECT "tenants".* FROM "tenants"
+  Rendered tenants/index.html.erb within layouts/application (2.6ms)
+Completed 200 OK in 46ms (Views: 44.0ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/assets/forums.css?body=1" for 127.0.0.1 at 2016-07-20 17:06:52 +0530
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2016-07-20 17:06:52 +0530
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2016-07-20 17:06:52 +0530
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2016-07-20 17:06:52 +0530
+
+
+Started GET "/assets/tenants.css?body=1" for 127.0.0.1 at 2016-07-20 17:06:52 +0530
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2016-07-20 17:06:52 +0530
+
+
+Started GET "/assets/scaffolds.css?body=1" for 127.0.0.1 at 2016-07-20 17:06:52 +0530
+
+
+Started GET "/assets/forums.js?body=1" for 127.0.0.1 at 2016-07-20 17:06:52 +0530
+
+
+Started GET "/assets/tenants.js?body=1" for 127.0.0.1 at 2016-07-20 17:06:52 +0530
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2016-07-20 17:06:52 +0530
+
+
+Started GET "/tenants/new" for 127.0.0.1 at 2016-07-20 17:08:19 +0530
+Processing by TenantsController#new as HTML
+  Rendered tenants/_form.html.erb (4.9ms)
+  Rendered tenants/new.html.erb within layouts/application (5.9ms)
+Completed 200 OK in 46ms (Views: 41.4ms | ActiveRecord: 1.9ms)
+
+
+Started POST "/tenants" for 127.0.0.1 at 2016-07-20 17:08:23 +0530
+Processing by TenantsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"v7kwYrKETS4Jf828URKa4MabWIG6ekhxSApwANlqAaU=", "tenant"=>{"name"=>"aaa"}, "commit"=>"Create Tenant"}
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "tenants" ("created_at", "name", "updated_at") VALUES ($1, $2, $3) RETURNING "id"  [["created_at", "2016-07-20 11:38:23.246823"], ["name", "aaa"], ["updated_at", "2016-07-20 11:38:23.246823"]]
+  [1m[36m (68.7ms)[0m  [1mCOMMIT[0m
+  [1m[35m (29.0ms)[0m  CREATE SCHEMA "aaa"
+  [1m[36mSQL (0.3ms)[0m  [1mCREATE EXTENSION IF NOT EXISTS "plpgsql"[0m
+  [1m[35m (161.0ms)[0m  CREATE TABLE "forums" ("id" serial primary key, "title" character varying(255), "description" text, "created_at" timestamp, "updated_at" timestamp) 
+  [1m[36m (63.8ms)[0m  [1mCREATE TABLE "tenants" ("id" serial primary key, "name" character varying(255), "created_at" timestamp, "updated_at" timestamp) [0m
+  [1m[35m (8.3ms)[0m  CREATE TABLE "schema_migrations" ("version" character varying(255) NOT NULL) 
+  [1m[36m (62.4ms)[0m  [1mCREATE UNIQUE INDEX  "unique_schema_migrations" ON "schema_migrations"  ("version")[0m
+  [1m[35m (0.4ms)[0m  SELECT version FROM "schema_migrations"
+  [1m[36m (10.3ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20160719120246')[0m
+  [1m[35m (10.6ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20160112092613')
+Redirected to http://localhost:3000/tenants/5
+Completed 302 Found in 453ms (ActiveRecord: 429.0ms)
+
+
+Started GET "/tenants/5" for 127.0.0.1 at 2016-07-20 17:08:23 +0530
+Processing by TenantsController#show as HTML
+  Parameters: {"id"=>"5"}
+  [1m[36mTenant Load (0.5ms)[0m  [1mSELECT  "tenants".* FROM "tenants"  WHERE "tenants"."id" = $1 LIMIT 1[0m  [["id", 5]]
+  Rendered tenants/show.html.erb within layouts/application (0.4ms)
+Completed 200 OK in 48ms (Views: 46.1ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/assets/forums.css?body=1" for 127.0.0.1 at 2016-07-20 17:08:23 +0530
+
+
+Started GET "/assets/tenants.css?body=1" for 127.0.0.1 at 2016-07-20 17:08:23 +0530
+
+
+Started GET "/assets/scaffolds.css?body=1" for 127.0.0.1 at 2016-07-20 17:08:23 +0530
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2016-07-20 17:08:23 +0530
+
+
+Started GET "/assets/forums.js?body=1" for 127.0.0.1 at 2016-07-20 17:08:23 +0530
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2016-07-20 17:08:23 +0530
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2016-07-20 17:08:23 +0530
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2016-07-20 17:08:23 +0530
+
+
+Started GET "/assets/tenants.js?body=1" for 127.0.0.1 at 2016-07-20 17:08:23 +0530
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2016-07-20 17:08:23 +0530
+
+
+Started GET "/tenants" for 127.0.0.1 at 2016-07-20 17:08:32 +0530
+Processing by TenantsController#index as HTML
+  [1m[35mTenant Load (0.5ms)[0m  SELECT "tenants".* FROM "tenants"
+  Rendered tenants/index.html.erb within layouts/application (2.0ms)
+Completed 200 OK in 42ms (Views: 40.5ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/tenants" for 127.0.0.1 at 2016-07-20 17:11:22 +0530
+Processing by TenantsController#index as HTML
+  [1m[36mTenant Load (0.4ms)[0m  [1mSELECT "tenants".* FROM "tenants"[0m
+  Rendered tenants/index.html.erb within layouts/application (6.3ms)
+Completed 200 OK in 55ms (Views: 50.4ms | ActiveRecord: 2.4ms)
+
+
+Started GET "/assets/forums.css?body=1" for 127.0.0.1 at 2016-07-20 17:11:22 +0530
+
+
+Started GET "/assets/tenants.css?body=1" for 127.0.0.1 at 2016-07-20 17:11:22 +0530
+
+
+Started GET "/assets/scaffolds.css?body=1" for 127.0.0.1 at 2016-07-20 17:11:22 +0530
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2016-07-20 17:11:22 +0530
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2016-07-20 17:11:22 +0530
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2016-07-20 17:11:22 +0530
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2016-07-20 17:11:22 +0530
+
+
+Started GET "/assets/forums.js?body=1" for 127.0.0.1 at 2016-07-20 17:11:22 +0530
+
+
+Started GET "/assets/tenants.js?body=1" for 127.0.0.1 at 2016-07-20 17:11:22 +0530
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2016-07-20 17:11:22 +0530
+
+
+Started GET "/tenants" for 127.0.0.1 at 2016-07-20 17:11:31 +0530
+Processing by TenantsController#index as HTML
+  [1m[35mTenant Load (0.3ms)[0m  SELECT "tenants".* FROM "tenants"
+  Rendered tenants/index.html.erb within layouts/application (1.7ms)
+Completed 200 OK in 36ms (Views: 35.4ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/assets/forums.css?body=1" for 127.0.0.1 at 2016-07-20 17:11:31 +0530
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2016-07-20 17:11:31 +0530
+
+
+Started GET "/assets/tenants.css?body=1" for 127.0.0.1 at 2016-07-20 17:11:31 +0530
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2016-07-20 17:11:31 +0530
+
+
+Started GET "/assets/scaffolds.css?body=1" for 127.0.0.1 at 2016-07-20 17:11:31 +0530
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2016-07-20 17:11:31 +0530
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2016-07-20 17:11:31 +0530
+
+
+Started GET "/assets/forums.js?body=1" for 127.0.0.1 at 2016-07-20 17:11:31 +0530
+
+
+Started GET "/assets/tenants.js?body=1" for 127.0.0.1 at 2016-07-20 17:11:31 +0530
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2016-07-20 17:11:31 +0530
+
+
+Started GET "/tenants/5" for 127.0.0.1 at 2016-07-20 17:11:33 +0530
+Processing by TenantsController#show as HTML
+  Parameters: {"id"=>"5"}
+  [1m[36mTenant Load (0.3ms)[0m  [1mSELECT  "tenants".* FROM "tenants"  WHERE "tenants"."id" = $1 LIMIT 1[0m  [["id", 5]]
+  Rendered tenants/show.html.erb within layouts/application (0.5ms)
+Completed 200 OK in 42ms (Views: 41.2ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/tenants/5" for 127.0.0.1 at 2016-07-20 17:11:55 +0530
+Processing by TenantsController#show as HTML
+  Parameters: {"id"=>"5"}
+  [1m[35mTenant Load (0.4ms)[0m  SELECT  "tenants".* FROM "tenants"  WHERE "tenants"."id" = $1 LIMIT 1  [["id", 5]]
+  Rendered tenants/show.html.erb within layouts/application (0.6ms)
+Completed 200 OK in 37ms (Views: 35.0ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/assets/forums.css?body=1" for 127.0.0.1 at 2016-07-20 17:11:55 +0530
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2016-07-20 17:11:55 +0530
+
+
+Started GET "/assets/scaffolds.css?body=1" for 127.0.0.1 at 2016-07-20 17:11:55 +0530
+
+
+Started GET "/assets/tenants.css?body=1" for 127.0.0.1 at 2016-07-20 17:11:55 +0530
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2016-07-20 17:11:55 +0530
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2016-07-20 17:11:55 +0530
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2016-07-20 17:11:55 +0530
+
+
+Started GET "/assets/forums.js?body=1" for 127.0.0.1 at 2016-07-20 17:11:55 +0530
+
+
+Started GET "/assets/tenants.js?body=1" for 127.0.0.1 at 2016-07-20 17:11:55 +0530
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2016-07-20 17:11:55 +0530
+
+
+Started GET "/tenants" for 127.0.0.1 at 2016-07-20 17:11:59 +0530
+Processing by TenantsController#index as HTML
+  [1m[36mTenant Load (0.4ms)[0m  [1mSELECT "tenants".* FROM "tenants"[0m
+  Rendered tenants/index.html.erb within layouts/application (1.7ms)
+Completed 200 OK in 45ms (Views: 43.9ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/tenants/5" for 127.0.0.1 at 2016-07-20 17:12:03 +0530
+Processing by TenantsController#show as HTML
+  Parameters: {"id"=>"5"}
+  [1m[35mTenant Load (0.3ms)[0m  SELECT  "tenants".* FROM "tenants"  WHERE "tenants"."id" = $1 LIMIT 1  [["id", 5]]
+  Rendered tenants/show.html.erb within layouts/application (0.6ms)
+Completed 200 OK in 36ms (Views: 35.3ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/tenants" for 127.0.0.1 at 2016-07-20 17:12:05 +0530
+Processing by TenantsController#index as HTML
+  [1m[36mTenant Load (0.3ms)[0m  [1mSELECT "tenants".* FROM "tenants"[0m
+  Rendered tenants/index.html.erb within layouts/application (1.0ms)
+Completed 200 OK in 42ms (Views: 41.5ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/tenants/new" for 127.0.0.1 at 2016-07-20 17:12:38 +0530
+Processing by TenantsController#new as HTML
+  Rendered tenants/_form.html.erb (1.7ms)
+  Rendered tenants/new.html.erb within layouts/application (2.6ms)
+Completed 200 OK in 38ms (Views: 37.8ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/tenants" for 127.0.0.1 at 2016-07-20 17:12:43 +0530
+Processing by TenantsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"v7kwYrKETS4Jf828URKa4MabWIG6ekhxSApwANlqAaU=", "tenant"=>{"name"=>"aaa"}, "commit"=>"Create Tenant"}
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36mSQL (0.4ms)[0m  [1mINSERT INTO "tenants" ("created_at", "name", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["created_at", "2016-07-20 11:42:43.176798"], ["name", "aaa"], ["updated_at", "2016-07-20 11:42:43.176798"]]
+  [1m[35m (67.0ms)[0m  COMMIT
+  [1m[36m (0.4ms)[0m  [1mCREATE SCHEMA "aaa"[0m
+PG::DuplicateSchema: ERROR:  schema "aaa" already exists
+: CREATE SCHEMA "aaa"
+Completed 500 Internal Server Error in 160ms
+
+Apartment::TenantExists (Error while creating tenant aaa: PG::DuplicateSchema: ERROR:  schema "aaa" already exists
+: CREATE SCHEMA "aaa"):
+  app/controllers/tenants_controller.rb:31:in `block in create'
+  app/controllers/tenants_controller.rb:28:in `create'
+
+
+  Rendered /home/sunil/.rvm/gems/ruby-2.1.4/gems/actionpack-4.1.6/lib/action_dispatch/middleware/templates/rescues/_source.erb (0.6ms)
+  Rendered /home/sunil/.rvm/gems/ruby-2.1.4/gems/actionpack-4.1.6/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.0ms)
+  Rendered /home/sunil/.rvm/gems/ruby-2.1.4/gems/actionpack-4.1.6/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (0.9ms)
+  Rendered /home/sunil/.rvm/gems/ruby-2.1.4/gems/actionpack-4.1.6/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (12.5ms)
+
+
+Started POST "/tenants" for 127.0.0.1 at 2016-07-20 17:14:56 +0530
+Processing by TenantsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"v7kwYrKETS4Jf828URKa4MabWIG6ekhxSApwANlqAaU=", "tenant"=>{"name"=>"aaa"}, "commit"=>"Create Tenant"}
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36mTenant Exists (71.3ms)[0m  [1mSELECT  1 AS one FROM "tenants"  WHERE "tenants"."name" = 'aaa' LIMIT 1[0m
+  [1m[35m (0.1ms)[0m  ROLLBACK
+  Rendered tenants/_form.html.erb (3.2ms)
+  Rendered tenants/new.html.erb within layouts/application (4.3ms)
+Completed 200 OK in 312ms (Views: 54.4ms | ActiveRecord: 73.2ms)
+
+
+Started GET "/assets/forums.css?body=1" for 127.0.0.1 at 2016-07-20 17:14:57 +0530
+
+
+Started GET "/assets/scaffolds.css?body=1" for 127.0.0.1 at 2016-07-20 17:14:57 +0530
+
+
+Started GET "/assets/tenants.css?body=1" for 127.0.0.1 at 2016-07-20 17:14:57 +0530
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2016-07-20 17:14:57 +0530
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2016-07-20 17:14:57 +0530
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2016-07-20 17:14:57 +0530
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2016-07-20 17:14:57 +0530
+
+
+Started GET "/assets/forums.js?body=1" for 127.0.0.1 at 2016-07-20 17:14:57 +0530
+
+
+Started GET "/assets/tenants.js?body=1" for 127.0.0.1 at 2016-07-20 17:14:57 +0530
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2016-07-20 17:14:57 +0530
+
+
+Started POST "/tenants" for 127.0.0.1 at 2016-07-20 17:15:06 +0530
+Processing by TenantsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"v7kwYrKETS4Jf828URKa4MabWIG6ekhxSApwANlqAaU=", "tenant"=>{"name"=>""}, "commit"=>"Create Tenant"}
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35mTenant Exists (0.6ms)[0m  SELECT  1 AS one FROM "tenants"  WHERE "tenants"."name" = '' LIMIT 1
+  [1m[36m (0.2ms)[0m  [1mROLLBACK[0m
+  Rendered tenants/_form.html.erb (1.5ms)
+  Rendered tenants/new.html.erb within layouts/application (2.0ms)
+Completed 200 OK in 47ms (Views: 43.8ms | ActiveRecord: 0.9ms)
+
+
+Started GET "/assets/forums.css?body=1" for 127.0.0.1 at 2016-07-20 17:15:06 +0530
+
+
+Started GET "/assets/scaffolds.css?body=1" for 127.0.0.1 at 2016-07-20 17:15:06 +0530
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2016-07-20 17:15:06 +0530
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2016-07-20 17:15:06 +0530
+
+
+Started GET "/assets/tenants.css?body=1" for 127.0.0.1 at 2016-07-20 17:15:06 +0530
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2016-07-20 17:15:06 +0530
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2016-07-20 17:15:06 +0530
+
+
+Started GET "/assets/forums.js?body=1" for 127.0.0.1 at 2016-07-20 17:15:06 +0530
+
+
+Started GET "/assets/tenants.js?body=1" for 127.0.0.1 at 2016-07-20 17:15:06 +0530
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2016-07-20 17:15:06 +0530
+
+
+Started POST "/tenants" for 127.0.0.1 at 2016-07-20 17:15:11 +0530
+Processing by TenantsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"v7kwYrKETS4Jf828URKa4MabWIG6ekhxSApwANlqAaU=", "tenant"=>{"name"=>"bb"}, "commit"=>"Create Tenant"}
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36mTenant Exists (0.3ms)[0m  [1mSELECT  1 AS one FROM "tenants"  WHERE "tenants"."name" = 'bb' LIMIT 1[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "tenants" ("created_at", "name", "updated_at") VALUES ($1, $2, $3) RETURNING "id"  [["created_at", "2016-07-20 11:45:11.709475"], ["name", "bb"], ["updated_at", "2016-07-20 11:45:11.709475"]]
+  [1m[36m (59.5ms)[0m  [1mCOMMIT[0m
+  [1m[35m (29.0ms)[0m  CREATE SCHEMA "bb"
+  [1m[36mSQL (0.1ms)[0m  [1mCREATE EXTENSION IF NOT EXISTS "plpgsql"[0m
+  [1m[35m (162.4ms)[0m  CREATE TABLE "forums" ("id" serial primary key, "title" character varying(255), "description" text, "created_at" timestamp, "updated_at" timestamp) 
+  [1m[36m (66.7ms)[0m  [1mCREATE TABLE "tenants" ("id" serial primary key, "name" character varying(255), "created_at" timestamp, "updated_at" timestamp) [0m
+  [1m[35m (9.7ms)[0m  CREATE TABLE "schema_migrations" ("version" character varying(255) NOT NULL) 
+  [1m[36m (65.0ms)[0m  [1mCREATE UNIQUE INDEX  "unique_schema_migrations" ON "schema_migrations"  ("version")[0m
+  [1m[35m (0.4ms)[0m  SELECT version FROM "schema_migrations"
+  [1m[36m (10.3ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20160719120246')[0m
+  [1m[35m (10.7ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20160112092613')
+Redirected to http://localhost:3000/tenants/7
+Completed 302 Found in 458ms (ActiveRecord: 433.6ms)
+
+
+Started GET "/tenants/7" for 127.0.0.1 at 2016-07-20 17:15:12 +0530
+Processing by TenantsController#show as HTML
+  Parameters: {"id"=>"7"}
+  [1m[36mTenant Load (0.7ms)[0m  [1mSELECT  "tenants".* FROM "tenants"  WHERE "tenants"."id" = $1 LIMIT 1[0m  [["id", 7]]
+  Rendered tenants/show.html.erb within layouts/application (0.3ms)
+Completed 200 OK in 41ms (Views: 38.6ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/assets/scaffolds.css?body=1" for 127.0.0.1 at 2016-07-20 17:15:12 +0530
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2016-07-20 17:15:12 +0530
+
+
+Started GET "/assets/forums.css?body=1" for 127.0.0.1 at 2016-07-20 17:15:12 +0530
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2016-07-20 17:15:12 +0530
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2016-07-20 17:15:12 +0530
+
+
+Started GET "/assets/tenants.css?body=1" for 127.0.0.1 at 2016-07-20 17:15:12 +0530
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2016-07-20 17:15:12 +0530
+
+
+Started GET "/assets/forums.js?body=1" for 127.0.0.1 at 2016-07-20 17:15:12 +0530
+
+
+Started GET "/assets/tenants.js?body=1" for 127.0.0.1 at 2016-07-20 17:15:12 +0530
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2016-07-20 17:15:12 +0530
+
+
+Started GET "/tenants" for 127.0.0.1 at 2016-07-20 17:15:14 +0530
+Processing by TenantsController#index as HTML
+  [1m[35mTenant Load (0.3ms)[0m  SELECT "tenants".* FROM "tenants"
+  Rendered tenants/index.html.erb within layouts/application (1.5ms)
+Completed 200 OK in 41ms (Views: 40.4ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/tenants" for 127.0.0.1 at 2016-07-20 17:48:39 +0530
+Processing by TenantsController#index as HTML
+  [1m[36mTenant Load (0.3ms)[0m  [1mSELECT "tenants".* FROM "tenants"[0m
+  Rendered tenants/index.html.erb within layouts/application (5.0ms)
+Completed 200 OK in 49ms (Views: 45.2ms | ActiveRecord: 1.8ms)
+
+
+Started GET "/assets/forums.css?body=1" for 127.0.0.1 at 2016-07-20 17:48:39 +0530
+
+
+Started GET "/assets/scaffolds.css?body=1" for 127.0.0.1 at 2016-07-20 17:48:39 +0530
+
+
+Started GET "/assets/tenants.css?body=1" for 127.0.0.1 at 2016-07-20 17:48:39 +0530
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2016-07-20 17:48:39 +0530
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2016-07-20 17:48:39 +0530
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2016-07-20 17:48:39 +0530
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2016-07-20 17:48:39 +0530
+
+
+Started GET "/assets/forums.js?body=1" for 127.0.0.1 at 2016-07-20 17:48:39 +0530
+
+
+Started GET "/assets/tenants.js?body=1" for 127.0.0.1 at 2016-07-20 17:48:39 +0530
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2016-07-20 17:48:39 +0530
+
+
+Started GET "/tenants" for 127.0.0.1 at 2016-07-20 17:48:41 +0530
+Processing by TenantsController#index as HTML
+  [1m[35mTenant Load (0.3ms)[0m  SELECT "tenants".* FROM "tenants"
+  Rendered tenants/index.html.erb within layouts/application (1.3ms)
+Completed 200 OK in 35ms (Views: 34.6ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/assets/forums.js?body=1" for 127.0.0.1 at 2016-07-20 17:48:41 +0530
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2016-07-20 17:48:41 +0530
+
+
+Started GET "/assets/tenants.js?body=1" for 127.0.0.1 at 2016-07-20 17:48:41 +0530
+
+
+Started GET "/assets/scaffolds.css?body=1" for 127.0.0.1 at 2016-07-20 17:48:41 +0530
+
+
+Started GET "/assets/tenants.css?body=1" for 127.0.0.1 at 2016-07-20 17:48:41 +0530
+
+
+Started GET "/assets/forums.css?body=1" for 127.0.0.1 at 2016-07-20 17:48:41 +0530
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2016-07-20 17:48:41 +0530
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2016-07-20 17:48:41 +0530
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2016-07-20 17:48:41 +0530
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2016-07-20 17:48:41 +0530
+
+
+Started GET "/tenants" for 127.0.0.1 at 2016-07-20 17:50:00 +0530
+
+Apartment::TenantNotFound (One of the following schema(s) is invalid: "aa" "public"):
+  apartment (1.1.0) lib/apartment/adapters/postgresql_adapter.rb:72:in `rescue in connect_to_new'
+  apartment (1.1.0) lib/apartment/adapters/postgresql_adapter.rb:65:in `connect_to_new'
+  apartment (1.1.0) lib/apartment/adapters/abstract_adapter.rb:85:in `switch!'
+  apartment (1.1.0) lib/apartment/adapters/abstract_adapter.rb:98:in `switch'
+  apartment (1.1.0) lib/apartment/elevators/generic.rb:22:in `call'
+  apartment (1.1.0) lib/apartment/reloader.rb:18:in `call'
+  rack (1.5.5) lib/rack/etag.rb:23:in `call'
+  rack (1.5.5) lib/rack/conditionalget.rb:25:in `call'
+  rack (1.5.5) lib/rack/head.rb:11:in `call'
+  actionpack (4.1.6) lib/action_dispatch/middleware/params_parser.rb:27:in `call'
+  actionpack (4.1.6) lib/action_dispatch/middleware/flash.rb:254:in `call'
+  rack (1.5.5) lib/rack/session/abstract/id.rb:225:in `context'
+  rack (1.5.5) lib/rack/session/abstract/id.rb:220:in `call'
+  actionpack (4.1.6) lib/action_dispatch/middleware/cookies.rb:560:in `call'
+  activerecord (4.1.6) lib/active_record/query_cache.rb:36:in `call'
+  activerecord (4.1.6) lib/active_record/connection_adapters/abstract/connection_pool.rb:621:in `call'
+  activerecord (4.1.6) lib/active_record/migration.rb:380:in `call'
+  actionpack (4.1.6) lib/action_dispatch/middleware/callbacks.rb:29:in `block in call'
+  activesupport (4.1.6) lib/active_support/callbacks.rb:82:in `run_callbacks'
+  actionpack (4.1.6) lib/action_dispatch/middleware/callbacks.rb:27:in `call'
+  actionpack (4.1.6) lib/action_dispatch/middleware/reloader.rb:73:in `call'
+  actionpack (4.1.6) lib/action_dispatch/middleware/remote_ip.rb:76:in `call'
+  actionpack (4.1.6) lib/action_dispatch/middleware/debug_exceptions.rb:17:in `call'
+  actionpack (4.1.6) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.1.6) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.1.6) lib/rails/rack/logger.rb:20:in `block in call'
+  activesupport (4.1.6) lib/active_support/tagged_logging.rb:68:in `block in tagged'
+  activesupport (4.1.6) lib/active_support/tagged_logging.rb:26:in `tagged'
+  activesupport (4.1.6) lib/active_support/tagged_logging.rb:68:in `tagged'
+  railties (4.1.6) lib/rails/rack/logger.rb:20:in `call'
+  actionpack (4.1.6) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.5.5) lib/rack/methodoverride.rb:21:in `call'
+  rack (1.5.5) lib/rack/runtime.rb:17:in `call'
+  activesupport (4.1.6) lib/active_support/cache/strategy/local_cache_middleware.rb:26:in `call'
+  rack (1.5.5) lib/rack/lock.rb:17:in `call'
+  actionpack (4.1.6) lib/action_dispatch/middleware/static.rb:64:in `call'
+  rack (1.5.5) lib/rack/sendfile.rb:112:in `call'
+  railties (4.1.6) lib/rails/engine.rb:514:in `call'
+  railties (4.1.6) lib/rails/application.rb:144:in `call'
+  rack (1.5.5) lib/rack/lock.rb:17:in `call'
+  rack (1.5.5) lib/rack/content_length.rb:14:in `call'
+  rack (1.5.5) lib/rack/handler/webrick.rb:60:in `service'
+  /home/sunil/.rvm/rubies/ruby-2.1.4/lib/ruby/2.1.0/webrick/httpserver.rb:138:in `service'
+  /home/sunil/.rvm/rubies/ruby-2.1.4/lib/ruby/2.1.0/webrick/httpserver.rb:94:in `run'
+  /home/sunil/.rvm/rubies/ruby-2.1.4/lib/ruby/2.1.0/webrick/server.rb:295:in `block in start_thread'
+
+
+  Rendered /home/sunil/.rvm/gems/ruby-2.1.4/gems/actionpack-4.1.6/lib/action_dispatch/middleware/templates/rescues/_source.erb (0.4ms)
+  Rendered /home/sunil/.rvm/gems/ruby-2.1.4/gems/actionpack-4.1.6/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.2ms)
+  Rendered /home/sunil/.rvm/gems/ruby-2.1.4/gems/actionpack-4.1.6/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (0.8ms)
+  Rendered /home/sunil/.rvm/gems/ruby-2.1.4/gems/actionpack-4.1.6/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (12.5ms)
+
+
+Started GET "/tenants" for 127.0.0.1 at 2016-07-20 17:50:26 +0530
+
+Apartment::TenantNotFound (One of the following schema(s) is invalid: "aa" "public"):
+  apartment (1.1.0) lib/apartment/adapters/postgresql_adapter.rb:72:in `rescue in connect_to_new'
+  apartment (1.1.0) lib/apartment/adapters/postgresql_adapter.rb:65:in `connect_to_new'
+  apartment (1.1.0) lib/apartment/adapters/abstract_adapter.rb:85:in `switch!'
+  apartment (1.1.0) lib/apartment/adapters/abstract_adapter.rb:98:in `switch'
+  apartment (1.1.0) lib/apartment/elevators/generic.rb:22:in `call'
+  apartment (1.1.0) lib/apartment/reloader.rb:18:in `call'
+  rack (1.5.5) lib/rack/etag.rb:23:in `call'
+  rack (1.5.5) lib/rack/conditionalget.rb:25:in `call'
+  rack (1.5.5) lib/rack/head.rb:11:in `call'
+  actionpack (4.1.6) lib/action_dispatch/middleware/params_parser.rb:27:in `call'
+  actionpack (4.1.6) lib/action_dispatch/middleware/flash.rb:254:in `call'
+  rack (1.5.5) lib/rack/session/abstract/id.rb:225:in `context'
+  rack (1.5.5) lib/rack/session/abstract/id.rb:220:in `call'
+  actionpack (4.1.6) lib/action_dispatch/middleware/cookies.rb:560:in `call'
+  activerecord (4.1.6) lib/active_record/query_cache.rb:36:in `call'
+  activerecord (4.1.6) lib/active_record/connection_adapters/abstract/connection_pool.rb:621:in `call'
+  activerecord (4.1.6) lib/active_record/migration.rb:380:in `call'
+  actionpack (4.1.6) lib/action_dispatch/middleware/callbacks.rb:29:in `block in call'
+  activesupport (4.1.6) lib/active_support/callbacks.rb:82:in `run_callbacks'
+  actionpack (4.1.6) lib/action_dispatch/middleware/callbacks.rb:27:in `call'
+  actionpack (4.1.6) lib/action_dispatch/middleware/reloader.rb:73:in `call'
+  actionpack (4.1.6) lib/action_dispatch/middleware/remote_ip.rb:76:in `call'
+  actionpack (4.1.6) lib/action_dispatch/middleware/debug_exceptions.rb:17:in `call'
+  actionpack (4.1.6) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.1.6) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.1.6) lib/rails/rack/logger.rb:20:in `block in call'
+  activesupport (4.1.6) lib/active_support/tagged_logging.rb:68:in `block in tagged'
+  activesupport (4.1.6) lib/active_support/tagged_logging.rb:26:in `tagged'
+  activesupport (4.1.6) lib/active_support/tagged_logging.rb:68:in `tagged'
+  railties (4.1.6) lib/rails/rack/logger.rb:20:in `call'
+  actionpack (4.1.6) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.5.5) lib/rack/methodoverride.rb:21:in `call'
+  rack (1.5.5) lib/rack/runtime.rb:17:in `call'
+  activesupport (4.1.6) lib/active_support/cache/strategy/local_cache_middleware.rb:26:in `call'
+  rack (1.5.5) lib/rack/lock.rb:17:in `call'
+  actionpack (4.1.6) lib/action_dispatch/middleware/static.rb:64:in `call'
+  rack (1.5.5) lib/rack/sendfile.rb:112:in `call'
+  railties (4.1.6) lib/rails/engine.rb:514:in `call'
+  railties (4.1.6) lib/rails/application.rb:144:in `call'
+  rack (1.5.5) lib/rack/lock.rb:17:in `call'
+  rack (1.5.5) lib/rack/content_length.rb:14:in `call'
+  rack (1.5.5) lib/rack/handler/webrick.rb:60:in `service'
+  /home/sunil/.rvm/rubies/ruby-2.1.4/lib/ruby/2.1.0/webrick/httpserver.rb:138:in `service'
+  /home/sunil/.rvm/rubies/ruby-2.1.4/lib/ruby/2.1.0/webrick/httpserver.rb:94:in `run'
+  /home/sunil/.rvm/rubies/ruby-2.1.4/lib/ruby/2.1.0/webrick/server.rb:295:in `block in start_thread'
+
+
+  Rendered /home/sunil/.rvm/gems/ruby-2.1.4/gems/actionpack-4.1.6/lib/action_dispatch/middleware/templates/rescues/_source.erb (0.4ms)
+  Rendered /home/sunil/.rvm/gems/ruby-2.1.4/gems/actionpack-4.1.6/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.0ms)
+  Rendered /home/sunil/.rvm/gems/ruby-2.1.4/gems/actionpack-4.1.6/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.1ms)
+  Rendered /home/sunil/.rvm/gems/ruby-2.1.4/gems/actionpack-4.1.6/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (11.8ms)
+
+
+Started GET "/tenants" for 127.0.0.1 at 2016-07-20 17:51:06 +0530
+
+Apartment::TenantNotFound (One of the following schema(s) is invalid: "aa" "public"):
+  apartment (1.1.0) lib/apartment/adapters/postgresql_adapter.rb:72:in `rescue in connect_to_new'
+  apartment (1.1.0) lib/apartment/adapters/postgresql_adapter.rb:65:in `connect_to_new'
+  apartment (1.1.0) lib/apartment/adapters/abstract_adapter.rb:85:in `switch!'
+  apartment (1.1.0) lib/apartment/adapters/abstract_adapter.rb:98:in `switch'
+  apartment (1.1.0) lib/apartment/elevators/generic.rb:22:in `call'
+  apartment (1.1.0) lib/apartment/reloader.rb:18:in `call'
+  rack (1.5.5) lib/rack/etag.rb:23:in `call'
+  rack (1.5.5) lib/rack/conditionalget.rb:25:in `call'
+  rack (1.5.5) lib/rack/head.rb:11:in `call'
+  actionpack (4.1.6) lib/action_dispatch/middleware/params_parser.rb:27:in `call'
+  actionpack (4.1.6) lib/action_dispatch/middleware/flash.rb:254:in `call'
+  rack (1.5.5) lib/rack/session/abstract/id.rb:225:in `context'
+  rack (1.5.5) lib/rack/session/abstract/id.rb:220:in `call'
+  actionpack (4.1.6) lib/action_dispatch/middleware/cookies.rb:560:in `call'
+  activerecord (4.1.6) lib/active_record/query_cache.rb:36:in `call'
+  activerecord (4.1.6) lib/active_record/connection_adapters/abstract/connection_pool.rb:621:in `call'
+  activerecord (4.1.6) lib/active_record/migration.rb:380:in `call'
+  actionpack (4.1.6) lib/action_dispatch/middleware/callbacks.rb:29:in `block in call'
+  activesupport (4.1.6) lib/active_support/callbacks.rb:82:in `run_callbacks'
+  actionpack (4.1.6) lib/action_dispatch/middleware/callbacks.rb:27:in `call'
+  actionpack (4.1.6) lib/action_dispatch/middleware/reloader.rb:73:in `call'
+  actionpack (4.1.6) lib/action_dispatch/middleware/remote_ip.rb:76:in `call'
+  actionpack (4.1.6) lib/action_dispatch/middleware/debug_exceptions.rb:17:in `call'
+  actionpack (4.1.6) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.1.6) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.1.6) lib/rails/rack/logger.rb:20:in `block in call'
+  activesupport (4.1.6) lib/active_support/tagged_logging.rb:68:in `block in tagged'
+  activesupport (4.1.6) lib/active_support/tagged_logging.rb:26:in `tagged'
+  activesupport (4.1.6) lib/active_support/tagged_logging.rb:68:in `tagged'
+  railties (4.1.6) lib/rails/rack/logger.rb:20:in `call'
+  actionpack (4.1.6) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.5.5) lib/rack/methodoverride.rb:21:in `call'
+  rack (1.5.5) lib/rack/runtime.rb:17:in `call'
+  activesupport (4.1.6) lib/active_support/cache/strategy/local_cache_middleware.rb:26:in `call'
+  rack (1.5.5) lib/rack/lock.rb:17:in `call'
+  actionpack (4.1.6) lib/action_dispatch/middleware/static.rb:64:in `call'
+  rack (1.5.5) lib/rack/sendfile.rb:112:in `call'
+  railties (4.1.6) lib/rails/engine.rb:514:in `call'
+  railties (4.1.6) lib/rails/application.rb:144:in `call'
+  rack (1.5.5) lib/rack/lock.rb:17:in `call'
+  rack (1.5.5) lib/rack/content_length.rb:14:in `call'
+  rack (1.5.5) lib/rack/handler/webrick.rb:60:in `service'
+  /home/sunil/.rvm/rubies/ruby-2.1.4/lib/ruby/2.1.0/webrick/httpserver.rb:138:in `service'
+  /home/sunil/.rvm/rubies/ruby-2.1.4/lib/ruby/2.1.0/webrick/httpserver.rb:94:in `run'
+  /home/sunil/.rvm/rubies/ruby-2.1.4/lib/ruby/2.1.0/webrick/server.rb:295:in `block in start_thread'
+
+
+  Rendered /home/sunil/.rvm/gems/ruby-2.1.4/gems/actionpack-4.1.6/lib/action_dispatch/middleware/templates/rescues/_source.erb (1.1ms)
+  Rendered /home/sunil/.rvm/gems/ruby-2.1.4/gems/actionpack-4.1.6/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.4ms)
+  Rendered /home/sunil/.rvm/gems/ruby-2.1.4/gems/actionpack-4.1.6/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (0.8ms)
+  Rendered /home/sunil/.rvm/gems/ruby-2.1.4/gems/actionpack-4.1.6/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (17.2ms)
+
+
+Started GET "/tenants" for 127.0.0.1 at 2016-07-20 17:52:22 +0530
+
+Apartment::TenantNotFound (One of the following schema(s) is invalid: "aa" "public"):
+  apartment (1.1.0) lib/apartment/adapters/postgresql_adapter.rb:72:in `rescue in connect_to_new'
+  apartment (1.1.0) lib/apartment/adapters/postgresql_adapter.rb:65:in `connect_to_new'
+  apartment (1.1.0) lib/apartment/adapters/abstract_adapter.rb:85:in `switch!'
+  apartment (1.1.0) lib/apartment/adapters/abstract_adapter.rb:98:in `switch'
+  apartment (1.1.0) lib/apartment/elevators/generic.rb:22:in `call'
+  apartment (1.1.0) lib/apartment/reloader.rb:18:in `call'
+  rack (1.5.5) lib/rack/etag.rb:23:in `call'
+  rack (1.5.5) lib/rack/conditionalget.rb:25:in `call'
+  rack (1.5.5) lib/rack/head.rb:11:in `call'
+  actionpack (4.1.6) lib/action_dispatch/middleware/params_parser.rb:27:in `call'
+  actionpack (4.1.6) lib/action_dispatch/middleware/flash.rb:254:in `call'
+  rack (1.5.5) lib/rack/session/abstract/id.rb:225:in `context'
+  rack (1.5.5) lib/rack/session/abstract/id.rb:220:in `call'
+  actionpack (4.1.6) lib/action_dispatch/middleware/cookies.rb:560:in `call'
+  activerecord (4.1.6) lib/active_record/query_cache.rb:36:in `call'
+  activerecord (4.1.6) lib/active_record/connection_adapters/abstract/connection_pool.rb:621:in `call'
+  activerecord (4.1.6) lib/active_record/migration.rb:380:in `call'
+  actionpack (4.1.6) lib/action_dispatch/middleware/callbacks.rb:29:in `block in call'
+  activesupport (4.1.6) lib/active_support/callbacks.rb:82:in `run_callbacks'
+  actionpack (4.1.6) lib/action_dispatch/middleware/callbacks.rb:27:in `call'
+  actionpack (4.1.6) lib/action_dispatch/middleware/reloader.rb:73:in `call'
+  actionpack (4.1.6) lib/action_dispatch/middleware/remote_ip.rb:76:in `call'
+  actionpack (4.1.6) lib/action_dispatch/middleware/debug_exceptions.rb:17:in `call'
+  actionpack (4.1.6) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.1.6) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.1.6) lib/rails/rack/logger.rb:20:in `block in call'
+  activesupport (4.1.6) lib/active_support/tagged_logging.rb:68:in `block in tagged'
+  activesupport (4.1.6) lib/active_support/tagged_logging.rb:26:in `tagged'
+  activesupport (4.1.6) lib/active_support/tagged_logging.rb:68:in `tagged'
+  railties (4.1.6) lib/rails/rack/logger.rb:20:in `call'
+  actionpack (4.1.6) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.5.5) lib/rack/methodoverride.rb:21:in `call'
+  rack (1.5.5) lib/rack/runtime.rb:17:in `call'
+  activesupport (4.1.6) lib/active_support/cache/strategy/local_cache_middleware.rb:26:in `call'
+  rack (1.5.5) lib/rack/lock.rb:17:in `call'
+  actionpack (4.1.6) lib/action_dispatch/middleware/static.rb:64:in `call'
+  rack (1.5.5) lib/rack/sendfile.rb:112:in `call'
+  railties (4.1.6) lib/rails/engine.rb:514:in `call'
+  railties (4.1.6) lib/rails/application.rb:144:in `call'
+  rack (1.5.5) lib/rack/lock.rb:17:in `call'
+  rack (1.5.5) lib/rack/content_length.rb:14:in `call'
+  rack (1.5.5) lib/rack/handler/webrick.rb:60:in `service'
+  /home/sunil/.rvm/rubies/ruby-2.1.4/lib/ruby/2.1.0/webrick/httpserver.rb:138:in `service'
+  /home/sunil/.rvm/rubies/ruby-2.1.4/lib/ruby/2.1.0/webrick/httpserver.rb:94:in `run'
+  /home/sunil/.rvm/rubies/ruby-2.1.4/lib/ruby/2.1.0/webrick/server.rb:295:in `block in start_thread'
+
+
+  Rendered /home/sunil/.rvm/gems/ruby-2.1.4/gems/actionpack-4.1.6/lib/action_dispatch/middleware/templates/rescues/_source.erb (0.6ms)
+  Rendered /home/sunil/.rvm/gems/ruby-2.1.4/gems/actionpack-4.1.6/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (0.8ms)
+  Rendered /home/sunil/.rvm/gems/ruby-2.1.4/gems/actionpack-4.1.6/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (0.8ms)
+  Rendered /home/sunil/.rvm/gems/ruby-2.1.4/gems/actionpack-4.1.6/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (13.2ms)
+  [1m[36m (25.6ms)[0m  [1mSELECT "tenants".* FROM "tenants"[0m
+  [1m[35m (0.5ms)[0m  SELECT "tenants"."name" FROM "tenants"
+
+
+Started GET "/tenants" for 127.0.0.1 at 2016-07-20 18:00:21 +0530
+  [1m[36mActiveRecord::SchemaMigration Load (0.3ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by TenantsController#index as HTML
+  [1m[35mTenant Load (0.5ms)[0m  SELECT "tenants".* FROM "tenants"
+  Rendered tenants/index.html.erb within layouts/application (9.7ms)
+Completed 200 OK in 82ms (Views: 70.8ms | ActiveRecord: 2.7ms)
+
+
+Started GET "/assets/forums.css?body=1" for 127.0.0.1 at 2016-07-20 18:00:21 +0530
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2016-07-20 18:00:21 +0530
+
+
+Started GET "/assets/scaffolds.css?body=1" for 127.0.0.1 at 2016-07-20 18:00:21 +0530
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2016-07-20 18:00:21 +0530
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2016-07-20 18:00:21 +0530
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2016-07-20 18:00:21 +0530
+
+
+Started GET "/assets/tenants.css?body=1" for 127.0.0.1 at 2016-07-20 18:00:21 +0530
+
+
+Started GET "/assets/forums.js?body=1" for 127.0.0.1 at 2016-07-20 18:00:21 +0530
+
+
+Started GET "/assets/tenants.js?body=1" for 127.0.0.1 at 2016-07-20 18:00:21 +0530
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2016-07-20 18:00:21 +0530
+
+
+Started GET "/tenants" for 127.0.0.1 at 2016-07-20 18:00:44 +0530
+Processing by TenantsController#index as HTML
+  [1m[36mTenant Load (0.7ms)[0m  [1mSELECT "tenants".* FROM "tenants"[0m
+  Rendered tenants/index.html.erb within layouts/application (1.5ms)
+Completed 200 OK in 52ms (Views: 50.8ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/assets/forums.css?body=1" for 127.0.0.1 at 2016-07-20 18:00:44 +0530
+
+
+Started GET "/assets/tenants.css?body=1" for 127.0.0.1 at 2016-07-20 18:00:44 +0530
+
+
+Started GET "/assets/scaffolds.css?body=1" for 127.0.0.1 at 2016-07-20 18:00:44 +0530
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2016-07-20 18:00:44 +0530
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2016-07-20 18:00:44 +0530
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2016-07-20 18:00:44 +0530
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2016-07-20 18:00:44 +0530
+
+
+Started GET "/assets/forums.js?body=1" for 127.0.0.1 at 2016-07-20 18:00:44 +0530
+
+
+Started GET "/assets/tenants.js?body=1" for 127.0.0.1 at 2016-07-20 18:00:44 +0530
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2016-07-20 18:00:44 +0530
+
+
+Started GET "/blog" for 127.0.0.1 at 2016-07-20 18:01:21 +0530
+
+ActionController::RoutingError (No route matches [GET] "/blog"):
+  actionpack (4.1.6) lib/action_dispatch/middleware/debug_exceptions.rb:21:in `call'
+  actionpack (4.1.6) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.1.6) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.1.6) lib/rails/rack/logger.rb:20:in `block in call'
+  activesupport (4.1.6) lib/active_support/tagged_logging.rb:68:in `block in tagged'
+  activesupport (4.1.6) lib/active_support/tagged_logging.rb:26:in `tagged'
+  activesupport (4.1.6) lib/active_support/tagged_logging.rb:68:in `tagged'
+  railties (4.1.6) lib/rails/rack/logger.rb:20:in `call'
+  actionpack (4.1.6) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.5.5) lib/rack/methodoverride.rb:21:in `call'
+  rack (1.5.5) lib/rack/runtime.rb:17:in `call'
+  activesupport (4.1.6) lib/active_support/cache/strategy/local_cache_middleware.rb:26:in `call'
+  rack (1.5.5) lib/rack/lock.rb:17:in `call'
+  actionpack (4.1.6) lib/action_dispatch/middleware/static.rb:64:in `call'
+  rack (1.5.5) lib/rack/sendfile.rb:112:in `call'
+  railties (4.1.6) lib/rails/engine.rb:514:in `call'
+  railties (4.1.6) lib/rails/application.rb:144:in `call'
+  rack (1.5.5) lib/rack/lock.rb:17:in `call'
+  rack (1.5.5) lib/rack/content_length.rb:14:in `call'
+  rack (1.5.5) lib/rack/handler/webrick.rb:60:in `service'
+  /home/sunil/.rvm/rubies/ruby-2.1.4/lib/ruby/2.1.0/webrick/httpserver.rb:138:in `service'
+  /home/sunil/.rvm/rubies/ruby-2.1.4/lib/ruby/2.1.0/webrick/httpserver.rb:94:in `run'
+  /home/sunil/.rvm/rubies/ruby-2.1.4/lib/ruby/2.1.0/webrick/server.rb:295:in `block in start_thread'
+
+
+  Rendered /home/sunil/.rvm/gems/ruby-2.1.4/gems/actionpack-4.1.6/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.2ms)
+  Rendered /home/sunil/.rvm/gems/ruby-2.1.4/gems/actionpack-4.1.6/lib/action_dispatch/middleware/templates/routes/_route.html.erb (1.4ms)
+  Rendered /home/sunil/.rvm/gems/ruby-2.1.4/gems/actionpack-4.1.6/lib/action_dispatch/middleware/templates/routes/_table.html.erb (76.2ms)
+  Rendered /home/sunil/.rvm/gems/ruby-2.1.4/gems/actionpack-4.1.6/lib/action_dispatch/middleware/templates/rescues/routing_error.html.erb within rescues/layout (136.9ms)
+
+
+Started GET "/blogs" for 127.0.0.1 at 2016-07-20 18:01:25 +0530
+
+ActionController::RoutingError (No route matches [GET] "/blogs"):
+  actionpack (4.1.6) lib/action_dispatch/middleware/debug_exceptions.rb:21:in `call'
+  actionpack (4.1.6) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.1.6) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.1.6) lib/rails/rack/logger.rb:20:in `block in call'
+  activesupport (4.1.6) lib/active_support/tagged_logging.rb:68:in `block in tagged'
+  activesupport (4.1.6) lib/active_support/tagged_logging.rb:26:in `tagged'
+  activesupport (4.1.6) lib/active_support/tagged_logging.rb:68:in `tagged'
+  railties (4.1.6) lib/rails/rack/logger.rb:20:in `call'
+  actionpack (4.1.6) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.5.5) lib/rack/methodoverride.rb:21:in `call'
+  rack (1.5.5) lib/rack/runtime.rb:17:in `call'
+  activesupport (4.1.6) lib/active_support/cache/strategy/local_cache_middleware.rb:26:in `call'
+  rack (1.5.5) lib/rack/lock.rb:17:in `call'
+  actionpack (4.1.6) lib/action_dispatch/middleware/static.rb:64:in `call'
+  rack (1.5.5) lib/rack/sendfile.rb:112:in `call'
+  railties (4.1.6) lib/rails/engine.rb:514:in `call'
+  railties (4.1.6) lib/rails/application.rb:144:in `call'
+  rack (1.5.5) lib/rack/lock.rb:17:in `call'
+  rack (1.5.5) lib/rack/content_length.rb:14:in `call'
+  rack (1.5.5) lib/rack/handler/webrick.rb:60:in `service'
+  /home/sunil/.rvm/rubies/ruby-2.1.4/lib/ruby/2.1.0/webrick/httpserver.rb:138:in `service'
+  /home/sunil/.rvm/rubies/ruby-2.1.4/lib/ruby/2.1.0/webrick/httpserver.rb:94:in `run'
+  /home/sunil/.rvm/rubies/ruby-2.1.4/lib/ruby/2.1.0/webrick/server.rb:295:in `block in start_thread'
+
+
+  Rendered /home/sunil/.rvm/gems/ruby-2.1.4/gems/actionpack-4.1.6/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (0.8ms)
+  Rendered /home/sunil/.rvm/gems/ruby-2.1.4/gems/actionpack-4.1.6/lib/action_dispatch/middleware/templates/routes/_route.html.erb (1.4ms)
+  Rendered /home/sunil/.rvm/gems/ruby-2.1.4/gems/actionpack-4.1.6/lib/action_dispatch/middleware/templates/routes/_table.html.erb (1.5ms)
+  Rendered /home/sunil/.rvm/gems/ruby-2.1.4/gems/actionpack-4.1.6/lib/action_dispatch/middleware/templates/rescues/routing_error.html.erb within rescues/layout (16.6ms)
+
+
+Started GET "/forums" for 127.0.0.1 at 2016-07-20 18:01:35 +0530
+Processing by ForumsController#index as HTML
+  [1m[35mForum Load (0.7ms)[0m  SELECT "forums".* FROM "forums"
+  Rendered forums/index.html.erb within layouts/application (2.5ms)
+Completed 200 OK in 90ms (Views: 81.3ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/forums/new" for 127.0.0.1 at 2016-07-20 18:01:38 +0530
+Processing by ForumsController#new as HTML
+  Rendered forums/_form.html.erb (14.1ms)
+  Rendered forums/new.html.erb within layouts/application (16.0ms)
+Completed 200 OK in 78ms (Views: 75.0ms | ActiveRecord: 1.4ms)
+
+
+Started POST "/forums" for 127.0.0.1 at 2016-07-20 18:01:53 +0530
+Processing by ForumsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"uESQVVc/m7Z+btm0KTDjx+tBc8vwsL1hqG/49X+Zym0=", "forum"=>{"title"=>"Forum in tenant aaa", "description"=>"aaa"}, "commit"=>"Create Forum"}
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.5ms)[0m  INSERT INTO "forums" ("created_at", "description", "title", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"  [["created_at", "2016-07-20 12:31:53.527964"], ["description", "aaa"], ["title", "Forum in tenant aaa"], ["updated_at", "2016-07-20 12:31:53.527964"]]
+  [1m[36m (489.5ms)[0m  [1mCOMMIT[0m
+Redirected to http://aaa.demosite.com:3000/forums/1
+Completed 302 Found in 497ms (ActiveRecord: 490.2ms)
+
+
+Started GET "/forums/1" for 127.0.0.1 at 2016-07-20 18:01:54 +0530
+Processing by ForumsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[35mForum Load (0.3ms)[0m  SELECT  "forums".* FROM "forums"  WHERE "forums"."id" = $1 LIMIT 1  [["id", 1]]
+  Rendered forums/show.html.erb within layouts/application (1.5ms)
+Completed 200 OK in 49ms (Views: 46.6ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/forums" for 127.0.0.1 at 2016-07-20 18:02:02 +0530
+Processing by ForumsController#index as HTML
+  [1m[36mForum Load (0.3ms)[0m  [1mSELECT "forums".* FROM "forums"[0m
+  Rendered forums/index.html.erb within layouts/application (1.6ms)
+Completed 200 OK in 44ms (Views: 42.9ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/" for 127.0.0.1 at 2016-07-20 18:02:53 +0530
+Processing by Rails::WelcomeController#index as HTML
+  Rendered /home/sunil/.rvm/gems/ruby-2.1.4/gems/railties-4.1.6/lib/rails/templates/rails/welcome/index.html.erb (0.7ms)
+Completed 200 OK in 2ms (Views: 1.8ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2016-07-20 18:04:30 +0530
+Processing by TenantsController#index as HTML
+  [1m[35mTenant Load (0.4ms)[0m  SELECT "tenants".* FROM "tenants"
+  Rendered tenants/index.html.erb within layouts/application (1.0ms)
+Completed 200 OK in 37ms (Views: 35.3ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/" for 127.0.0.1 at 2016-07-20 18:05:24 +0530
+Processing by TenantsController#index as HTML
+  [1m[36mTenant Load (0.3ms)[0m  [1mSELECT "tenants".* FROM "tenants"[0m
+  Rendered tenants/index.html.erb within layouts/application (3.3ms)
+Completed 200 OK in 49ms (Views: 47.8ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/assets/forums.css?body=1" for 127.0.0.1 at 2016-07-20 18:05:24 +0530
+
+
+Started GET "/assets/scaffolds.css?body=1" for 127.0.0.1 at 2016-07-20 18:05:24 +0530
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2016-07-20 18:05:24 +0530
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2016-07-20 18:05:24 +0530
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2016-07-20 18:05:24 +0530
+
+
+Started GET "/assets/forums.js?body=1" for 127.0.0.1 at 2016-07-20 18:05:24 +0530
+
+
+Started GET "/assets/tenants.css?body=1" for 127.0.0.1 at 2016-07-20 18:05:24 +0530
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2016-07-20 18:05:24 +0530
+
+
+Started GET "/assets/tenants.js?body=1" for 127.0.0.1 at 2016-07-20 18:05:24 +0530
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2016-07-20 18:05:24 +0530
+
+
+Started GET "/" for 127.0.0.1 at 2016-07-20 18:05:49 +0530
+Processing by ForumsController#index as HTML
+  [1m[35mForum Load (24.5ms)[0m  SELECT "forums".* FROM "forums"
+  Rendered forums/index.html.erb within layouts/application (38.9ms)
+Completed 200 OK in 80ms (Views: 48.2ms | ActiveRecord: 30.2ms)
+
+
+Started GET "/assets/forums.css?body=1" for 127.0.0.1 at 2016-07-20 18:05:49 +0530
+
+
+Started GET "/assets/scaffolds.css?body=1" for 127.0.0.1 at 2016-07-20 18:05:49 +0530
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2016-07-20 18:05:49 +0530
+
+
+Started GET "/assets/tenants.css?body=1" for 127.0.0.1 at 2016-07-20 18:05:49 +0530
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2016-07-20 18:05:49 +0530
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2016-07-20 18:05:49 +0530
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2016-07-20 18:05:49 +0530
+
+
+Started GET "/assets/forums.js?body=1" for 127.0.0.1 at 2016-07-20 18:05:49 +0530
+
+
+Started GET "/assets/tenants.js?body=1" for 127.0.0.1 at 2016-07-20 18:05:49 +0530
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2016-07-20 18:05:49 +0530
+
+
+Started GET "/" for 127.0.0.1 at 2016-07-20 18:06:04 +0530
+Processing by ForumsController#index as HTML
+  [1m[36mForum Load (0.5ms)[0m  [1mSELECT "forums".* FROM "forums"[0m
+  Rendered forums/index.html.erb within layouts/application (3.0ms)
+Completed 200 OK in 50ms (Views: 49.2ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/assets/forums.css?body=1" for 127.0.0.1 at 2016-07-20 18:06:04 +0530
+
+
+Started GET "/assets/scaffolds.css?body=1" for 127.0.0.1 at 2016-07-20 18:06:04 +0530
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2016-07-20 18:06:04 +0530
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2016-07-20 18:06:04 +0530
+
+
+Started GET "/assets/tenants.css?body=1" for 127.0.0.1 at 2016-07-20 18:06:04 +0530
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2016-07-20 18:06:04 +0530
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2016-07-20 18:06:04 +0530
+
+
+Started GET "/assets/forums.js?body=1" for 127.0.0.1 at 2016-07-20 18:06:04 +0530
+
+
+Started GET "/assets/tenants.js?body=1" for 127.0.0.1 at 2016-07-20 18:06:04 +0530
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2016-07-20 18:06:04 +0530
+
+
+Started GET "/" for 127.0.0.1 at 2016-07-20 18:07:45 +0530
+Processing by Rails::WelcomeController#index as HTML
+  Rendered /home/sunil/.rvm/gems/ruby-2.1.4/gems/railties-4.1.6/lib/rails/templates/rails/welcome/index.html.erb (0.1ms)
+Completed 200 OK in 1ms (Views: 0.9ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2016-07-20 18:08:53 +0530
+Processing by TenantsController#index as HTML
+  [1m[35mTenant Load (0.5ms)[0m  SELECT "tenants".* FROM "tenants"
+  Rendered tenants/index.html.erb within layouts/application (8.1ms)
+Completed 200 OK in 54ms (Views: 49.7ms | ActiveRecord: 2.8ms)
+
+
+Started GET "/assets/forums.css?body=1" for 127.0.0.1 at 2016-07-20 18:08:53 +0530
+
+
+Started GET "/assets/tenants.css?body=1" for 127.0.0.1 at 2016-07-20 18:08:53 +0530
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2016-07-20 18:08:53 +0530
+
+
+Started GET "/assets/scaffolds.css?body=1" for 127.0.0.1 at 2016-07-20 18:08:53 +0530
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2016-07-20 18:08:53 +0530
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2016-07-20 18:08:53 +0530
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2016-07-20 18:08:53 +0530
+
+
+Started GET "/assets/forums.js?body=1" for 127.0.0.1 at 2016-07-20 18:08:53 +0530
+
+
+Started GET "/assets/tenants.js?body=1" for 127.0.0.1 at 2016-07-20 18:08:53 +0530
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2016-07-20 18:08:53 +0530
+
+
+Started GET "/" for 127.0.0.1 at 2016-07-20 18:10:54 +0530
+Processing by TenantsController#index as HTML
+  [1m[36mTenant Load (0.5ms)[0m  [1mSELECT "tenants".* FROM "tenants"[0m
+  Rendered tenants/index.html.erb within layouts/application (4.3ms)
+Completed 200 OK in 55ms (Views: 53.4ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/assets/forums.css?body=1" for 127.0.0.1 at 2016-07-20 18:10:54 +0530
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2016-07-20 18:10:54 +0530
+
+
+Started GET "/assets/scaffolds.css?body=1" for 127.0.0.1 at 2016-07-20 18:10:54 +0530
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2016-07-20 18:10:54 +0530
+
+
+Started GET "/assets/tenants.css?body=1" for 127.0.0.1 at 2016-07-20 18:10:54 +0530
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2016-07-20 18:10:54 +0530
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2016-07-20 18:10:54 +0530
+
+
+Started GET "/assets/forums.js?body=1" for 127.0.0.1 at 2016-07-20 18:10:54 +0530
+
+
+Started GET "/assets/tenants.js?body=1" for 127.0.0.1 at 2016-07-20 18:10:54 +0530
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2016-07-20 18:10:54 +0530
+
+
+Started GET "/" for 127.0.0.1 at 2016-07-20 18:11:19 +0530
+Processing by TenantsController#index as HTML
+  [1m[35mTenant Load (0.5ms)[0m  SELECT "tenants".* FROM "tenants"
+  Rendered tenants/index.html.erb within layouts/application (1.2ms)
+Completed 200 OK in 45ms (Views: 43.9ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/" for 127.0.0.1 at 2016-07-20 18:11:38 +0530
+Processing by TenantsController#index as HTML
+  [1m[36mTenant Load (0.3ms)[0m  [1mSELECT "tenants".* FROM "tenants"[0m
+  Rendered tenants/index.html.erb within layouts/application (1.3ms)
+Completed 200 OK in 51ms (Views: 50.3ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/assets/forums.css?body=1" for 127.0.0.1 at 2016-07-20 18:11:38 +0530
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2016-07-20 18:11:38 +0530
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2016-07-20 18:11:38 +0530
+
+
+Started GET "/assets/scaffolds.css?body=1" for 127.0.0.1 at 2016-07-20 18:11:38 +0530
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2016-07-20 18:11:38 +0530
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2016-07-20 18:11:38 +0530
+
+
+Started GET "/assets/forums.js?body=1" for 127.0.0.1 at 2016-07-20 18:11:38 +0530
+
+
+Started GET "/assets/tenants.css?body=1" for 127.0.0.1 at 2016-07-20 18:11:38 +0530
+
+
+Started GET "/assets/tenants.js?body=1" for 127.0.0.1 at 2016-07-20 18:11:38 +0530
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2016-07-20 18:11:38 +0530
+
+
+Started GET "/" for 127.0.0.1 at 2016-07-20 18:11:45 +0530
+Processing by TenantsController#index as HTML
+  [1m[35mTenant Load (0.3ms)[0m  SELECT "tenants".* FROM "tenants"
+  Rendered tenants/index.html.erb within layouts/application (1.5ms)
+Completed 200 OK in 38ms (Views: 36.7ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/assets/forums.css?body=1" for 127.0.0.1 at 2016-07-20 18:11:45 +0530
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2016-07-20 18:11:45 +0530
+
+
+Started GET "/assets/tenants.css?body=1" for 127.0.0.1 at 2016-07-20 18:11:45 +0530
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2016-07-20 18:11:45 +0530
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2016-07-20 18:11:45 +0530
+
+
+Started GET "/assets/scaffolds.css?body=1" for 127.0.0.1 at 2016-07-20 18:11:45 +0530
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2016-07-20 18:11:45 +0530
+
+
+Started GET "/assets/forums.js?body=1" for 127.0.0.1 at 2016-07-20 18:11:45 +0530
+
+
+Started GET "/assets/tenants.js?body=1" for 127.0.0.1 at 2016-07-20 18:11:45 +0530
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2016-07-20 18:11:45 +0530
+
+
+Started GET "/" for 127.0.0.1 at 2016-07-20 18:13:40 +0530
+Processing by TenantsController#index as HTML
+  [1m[36mTenant Load (0.5ms)[0m  [1mSELECT "tenants".* FROM "tenants"[0m
+  Rendered tenants/index.html.erb within layouts/application (3.9ms)
+Completed 200 OK in 52ms (Views: 50.6ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/assets/forums.css?body=1" for 127.0.0.1 at 2016-07-20 18:13:40 +0530
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2016-07-20 18:13:40 +0530
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2016-07-20 18:13:40 +0530
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2016-07-20 18:13:40 +0530
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2016-07-20 18:13:40 +0530
+
+
+Started GET "/assets/scaffolds.css?body=1" for 127.0.0.1 at 2016-07-20 18:13:40 +0530
+
+
+Started GET "/assets/tenants.css?body=1" for 127.0.0.1 at 2016-07-20 18:13:40 +0530
+
+
+Started GET "/assets/forums.js?body=1" for 127.0.0.1 at 2016-07-20 18:13:40 +0530
+
+
+Started GET "/assets/tenants.js?body=1" for 127.0.0.1 at 2016-07-20 18:13:40 +0530
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2016-07-20 18:13:40 +0530
+
+
+Started GET "/" for 127.0.0.1 at 2016-07-20 18:14:10 +0530
+Processing by TenantsController#index as HTML
+  [1m[35mTenant Load (0.4ms)[0m  SELECT "tenants".* FROM "tenants"
+  Rendered tenants/index.html.erb within layouts/application (1.1ms)
+Completed 200 OK in 41ms (Views: 39.5ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/assets/forums.css?body=1" for 127.0.0.1 at 2016-07-20 18:14:10 +0530
+
+
+Started GET "/assets/scaffolds.css?body=1" for 127.0.0.1 at 2016-07-20 18:14:10 +0530
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2016-07-20 18:14:10 +0530
+
+
+Started GET "/assets/tenants.css?body=1" for 127.0.0.1 at 2016-07-20 18:14:10 +0530
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2016-07-20 18:14:10 +0530
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2016-07-20 18:14:10 +0530
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2016-07-20 18:14:10 +0530
+
+
+Started GET "/assets/forums.js?body=1" for 127.0.0.1 at 2016-07-20 18:14:10 +0530
+
+
+Started GET "/assets/tenants.js?body=1" for 127.0.0.1 at 2016-07-20 18:14:10 +0530
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2016-07-20 18:14:11 +0530
+
+
+Started GET "/" for 127.0.0.1 at 2016-07-20 18:14:25 +0530
+Processing by TenantsController#index as HTML
+  [1m[36mTenant Load (0.4ms)[0m  [1mSELECT "tenants".* FROM "tenants"[0m
+  Rendered tenants/index.html.erb within layouts/application (2.2ms)
+Completed 200 OK in 52ms (Views: 50.7ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/assets/forums.css?body=1" for 127.0.0.1 at 2016-07-20 18:14:25 +0530
+
+
+Started GET "/assets/tenants.css?body=1" for 127.0.0.1 at 2016-07-20 18:14:25 +0530
+
+
+Started GET "/assets/scaffolds.css?body=1" for 127.0.0.1 at 2016-07-20 18:14:25 +0530
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2016-07-20 18:14:25 +0530
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2016-07-20 18:14:25 +0530
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2016-07-20 18:14:25 +0530
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2016-07-20 18:14:25 +0530
+
+
+Started GET "/assets/forums.js?body=1" for 127.0.0.1 at 2016-07-20 18:14:25 +0530
+
+
+Started GET "/assets/tenants.js?body=1" for 127.0.0.1 at 2016-07-20 18:14:25 +0530
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2016-07-20 18:14:25 +0530
+
+
+Started GET "/" for 127.0.0.1 at 2016-07-20 18:14:29 +0530
+Processing by TenantsController#index as HTML
+  [1m[35mTenant Load (0.4ms)[0m  SELECT "tenants".* FROM "tenants"
+  Rendered tenants/index.html.erb within layouts/application (2.2ms)
+Completed 200 OK in 40ms (Views: 38.4ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/" for 127.0.0.1 at 2016-07-20 18:14:38 +0530
+Processing by TenantsController#index as HTML
+  [1m[36mTenant Load (0.4ms)[0m  [1mSELECT "tenants".* FROM "tenants"[0m
+  Rendered tenants/index.html.erb within layouts/application (2.1ms)
+Completed 200 OK in 48ms (Views: 46.5ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/" for 127.0.0.1 at 2016-07-20 18:14:48 +0530
+Processing by TenantsController#index as HTML
+  [1m[35mTenant Load (0.4ms)[0m  SELECT "tenants".* FROM "tenants"
+  Rendered tenants/index.html.erb within layouts/application (1.8ms)
+Completed 200 OK in 40ms (Views: 38.6ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/" for 127.0.0.1 at 2016-07-20 18:14:52 +0530
+Processing by TenantsController#index as HTML
+  [1m[36mTenant Load (0.3ms)[0m  [1mSELECT "tenants".* FROM "tenants"[0m
+  Rendered tenants/index.html.erb within layouts/application (1.8ms)
+Completed 200 OK in 41ms (Views: 40.1ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/" for 127.0.0.1 at 2016-07-20 18:15:05 +0530
+Processing by TenantsController#index as HTML
+  [1m[35mTenant Load (0.5ms)[0m  SELECT "tenants".* FROM "tenants"
+  Rendered tenants/index.html.erb within layouts/application (2.2ms)
+Completed 200 OK in 52ms (Views: 50.6ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/" for 127.0.0.1 at 2016-07-20 18:15:12 +0530
+Processing by TenantsController#index as HTML
+  [1m[36mTenant Load (0.4ms)[0m  [1mSELECT "tenants".* FROM "tenants"[0m
+  Rendered tenants/index.html.erb within layouts/application (2.3ms)
+Completed 200 OK in 50ms (Views: 49.2ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/" for 127.0.0.1 at 2016-07-20 18:15:23 +0530
+Processing by TenantsController#index as HTML
+  [1m[35mTenant Load (0.5ms)[0m  SELECT "tenants".* FROM "tenants"
+  Rendered tenants/index.html.erb within layouts/application (4.1ms)
+Completed 200 OK in 57ms (Views: 56.1ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/assets/forums.css?body=1" for 127.0.0.1 at 2016-07-20 18:15:23 +0530
+
+
+Started GET "/assets/scaffolds.css?body=1" for 127.0.0.1 at 2016-07-20 18:15:23 +0530
+
+
+Started GET "/assets/tenants.css?body=1" for 127.0.0.1 at 2016-07-20 18:15:23 +0530
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2016-07-20 18:15:23 +0530
+
+
+Started GET "/assets/forums.js?body=1" for 127.0.0.1 at 2016-07-20 18:15:23 +0530
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2016-07-20 18:15:23 +0530
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2016-07-20 18:15:23 +0530
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2016-07-20 18:15:23 +0530
+
+
+Started GET "/assets/tenants.js?body=1" for 127.0.0.1 at 2016-07-20 18:15:23 +0530
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2016-07-20 18:15:23 +0530
+
+
+Started GET "/" for 127.0.0.1 at 2016-07-20 18:15:40 +0530
+Processing by TenantsController#index as HTML
+  [1m[36mTenant Load (0.4ms)[0m  [1mSELECT "tenants".* FROM "tenants"[0m
+  Rendered tenants/index.html.erb within layouts/application (4.1ms)
+Completed 200 OK in 44ms (Views: 42.7ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/assets/scaffolds.css?body=1" for 127.0.0.1 at 2016-07-20 18:15:40 +0530
+
+
+Started GET "/assets/forums.css?body=1" for 127.0.0.1 at 2016-07-20 18:15:40 +0530
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2016-07-20 18:15:40 +0530
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2016-07-20 18:15:40 +0530
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2016-07-20 18:15:40 +0530
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2016-07-20 18:15:40 +0530
+
+
+Started GET "/assets/forums.js?body=1" for 127.0.0.1 at 2016-07-20 18:15:40 +0530
+
+
+Started GET "/assets/tenants.css?body=1" for 127.0.0.1 at 2016-07-20 18:15:40 +0530
+
+
+Started GET "/assets/tenants.js?body=1" for 127.0.0.1 at 2016-07-20 18:15:40 +0530
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2016-07-20 18:15:40 +0530
+
+
+Started GET "/" for 127.0.0.1 at 2016-07-20 18:15:42 +0530
+Processing by TenantsController#index as HTML
+  [1m[35mTenant Load (0.3ms)[0m  SELECT "tenants".* FROM "tenants"
+  Rendered tenants/index.html.erb within layouts/application (1.9ms)
+Completed 200 OK in 49ms (Views: 48.0ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/" for 127.0.0.1 at 2016-07-20 18:16:17 +0530
+Processing by TenantsController#index as HTML
+  [1m[36mTenant Load (0.4ms)[0m  [1mSELECT "tenants".* FROM "tenants"[0m
+  Rendered tenants/index.html.erb within layouts/application (2.3ms)
+Completed 200 OK in 44ms (Views: 42.7ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/assets/forums.css?body=1" for 127.0.0.1 at 2016-07-20 18:16:17 +0530
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2016-07-20 18:16:17 +0530
+
+
+Started GET "/assets/tenants.css?body=1" for 127.0.0.1 at 2016-07-20 18:16:17 +0530
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2016-07-20 18:16:17 +0530
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2016-07-20 18:16:17 +0530
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2016-07-20 18:16:17 +0530
+
+
+Started GET "/assets/scaffolds.css?body=1" for 127.0.0.1 at 2016-07-20 18:16:17 +0530
+
+
+Started GET "/assets/forums.js?body=1" for 127.0.0.1 at 2016-07-20 18:16:17 +0530
+
+
+Started GET "/assets/tenants.js?body=1" for 127.0.0.1 at 2016-07-20 18:16:17 +0530
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2016-07-20 18:16:17 +0530
+
+
+Started GET "/" for 127.0.0.1 at 2016-07-20 18:16:20 +0530
+Processing by TenantsController#index as HTML
+  [1m[35mTenant Load (0.3ms)[0m  SELECT "tenants".* FROM "tenants"
+  Rendered tenants/index.html.erb within layouts/application (1.9ms)
+Completed 200 OK in 49ms (Views: 48.6ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/" for 127.0.0.1 at 2016-07-20 18:16:21 +0530
+Processing by TenantsController#index as HTML
+  [1m[36mTenant Load (0.7ms)[0m  [1mSELECT "tenants".* FROM "tenants"[0m
+  Rendered tenants/index.html.erb within layouts/application (3.4ms)
+Completed 200 OK in 48ms (Views: 46.9ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/" for 127.0.0.1 at 2016-07-20 18:16:22 +0530
+Processing by TenantsController#index as HTML
+  [1m[35mTenant Load (0.3ms)[0m  SELECT "tenants".* FROM "tenants"
+  Rendered tenants/index.html.erb within layouts/application (1.3ms)
+Completed 200 OK in 52ms (Views: 50.9ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/assets/forums.css?body=1" for 127.0.0.1 at 2016-07-20 18:16:23 +0530
+
+
+Started GET "/assets/scaffolds.css?body=1" for 127.0.0.1 at 2016-07-20 18:16:23 +0530
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2016-07-20 18:16:23 +0530
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2016-07-20 18:16:23 +0530
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2016-07-20 18:16:23 +0530
+
+
+Started GET "/assets/tenants.css?body=1" for 127.0.0.1 at 2016-07-20 18:16:23 +0530
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2016-07-20 18:16:23 +0530
+
+
+Started GET "/assets/forums.js?body=1" for 127.0.0.1 at 2016-07-20 18:16:23 +0530
+
+
+Started GET "/assets/tenants.js?body=1" for 127.0.0.1 at 2016-07-20 18:16:23 +0530
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2016-07-20 18:16:23 +0530
+
+
+Started GET "/" for 127.0.0.1 at 2016-07-20 18:16:25 +0530
+Processing by TenantsController#index as HTML
+  [1m[36mTenant Load (0.3ms)[0m  [1mSELECT "tenants".* FROM "tenants"[0m
+  Rendered tenants/index.html.erb within layouts/application (1.7ms)
+Completed 200 OK in 45ms (Views: 44.6ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/" for 127.0.0.1 at 2016-07-20 18:17:04 +0530
+Processing by TenantsController#index as HTML
+  [1m[35mTenant Load (0.3ms)[0m  SELECT "tenants".* FROM "tenants"
+  Rendered tenants/index.html.erb within layouts/application (1.9ms)
+Completed 200 OK in 39ms (Views: 37.6ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/assets/forums.css?body=1" for 127.0.0.1 at 2016-07-20 18:17:04 +0530
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2016-07-20 18:17:04 +0530
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2016-07-20 18:17:04 +0530
+
+
+Started GET "/assets/tenants.css?body=1" for 127.0.0.1 at 2016-07-20 18:17:04 +0530
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2016-07-20 18:17:04 +0530
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2016-07-20 18:17:04 +0530
+
+
+Started GET "/assets/scaffolds.css?body=1" for 127.0.0.1 at 2016-07-20 18:17:04 +0530
+
+
+Started GET "/assets/forums.js?body=1" for 127.0.0.1 at 2016-07-20 18:17:04 +0530
+
+
+Started GET "/assets/tenants.js?body=1" for 127.0.0.1 at 2016-07-20 18:17:04 +0530
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2016-07-20 18:17:04 +0530
+
+
+Started GET "/" for 127.0.0.1 at 2016-07-20 18:17:06 +0530
+Processing by TenantsController#index as HTML
+  [1m[36mTenant Load (0.4ms)[0m  [1mSELECT "tenants".* FROM "tenants"[0m
+  Rendered tenants/index.html.erb within layouts/application (1.4ms)
+Completed 200 OK in 48ms (Views: 47.0ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/" for 127.0.0.1 at 2016-07-20 18:17:31 +0530
+Processing by TenantsController#index as HTML
+  [1m[35mTenant Load (0.4ms)[0m  SELECT "tenants".* FROM "tenants"
+  Rendered tenants/index.html.erb within layouts/application (2.7ms)
+Completed 200 OK in 45ms (Views: 43.8ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/assets/tenants.css?body=1" for 127.0.0.1 at 2016-07-20 18:17:31 +0530
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2016-07-20 18:17:31 +0530
+
+
+Started GET "/assets/forums.css?body=1" for 127.0.0.1 at 2016-07-20 18:17:31 +0530
+
+
+Started GET "/assets/scaffolds.css?body=1" for 127.0.0.1 at 2016-07-20 18:17:31 +0530
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2016-07-20 18:17:31 +0530
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2016-07-20 18:17:31 +0530
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2016-07-20 18:17:31 +0530
+
+
+Started GET "/assets/forums.js?body=1" for 127.0.0.1 at 2016-07-20 18:17:31 +0530
+
+
+Started GET "/assets/tenants.js?body=1" for 127.0.0.1 at 2016-07-20 18:17:31 +0530
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2016-07-20 18:17:31 +0530
+
+
+Started GET "/" for 127.0.0.1 at 2016-07-20 18:17:38 +0530
+Processing by TenantsController#index as HTML
+  [1m[36mTenant Load (0.5ms)[0m  [1mSELECT "tenants".* FROM "tenants"[0m
+  Rendered tenants/index.html.erb within layouts/application (2.5ms)
+Completed 200 OK in 40ms (Views: 38.8ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/assets/forums.css?body=1" for 127.0.0.1 at 2016-07-20 18:17:38 +0530
+
+
+Started GET "/assets/scaffolds.css?body=1" for 127.0.0.1 at 2016-07-20 18:17:38 +0530
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2016-07-20 18:17:38 +0530
+
+
+Started GET "/assets/tenants.css?body=1" for 127.0.0.1 at 2016-07-20 18:17:38 +0530
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2016-07-20 18:17:38 +0530
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2016-07-20 18:17:38 +0530
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2016-07-20 18:17:38 +0530
+
+
+Started GET "/assets/forums.js?body=1" for 127.0.0.1 at 2016-07-20 18:17:38 +0530
+
+
+Started GET "/assets/tenants.js?body=1" for 127.0.0.1 at 2016-07-20 18:17:38 +0530
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2016-07-20 18:17:38 +0530
+
+
+Started GET "/blogs" for 127.0.0.1 at 2016-07-20 18:17:40 +0530
+
+ActionController::RoutingError (No route matches [GET] "/blogs"):
+  actionpack (4.1.6) lib/action_dispatch/middleware/debug_exceptions.rb:21:in `call'
+  actionpack (4.1.6) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.1.6) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.1.6) lib/rails/rack/logger.rb:20:in `block in call'
+  activesupport (4.1.6) lib/active_support/tagged_logging.rb:68:in `block in tagged'
+  activesupport (4.1.6) lib/active_support/tagged_logging.rb:26:in `tagged'
+  activesupport (4.1.6) lib/active_support/tagged_logging.rb:68:in `tagged'
+  railties (4.1.6) lib/rails/rack/logger.rb:20:in `call'
+  actionpack (4.1.6) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.5.5) lib/rack/methodoverride.rb:21:in `call'
+  rack (1.5.5) lib/rack/runtime.rb:17:in `call'
+  activesupport (4.1.6) lib/active_support/cache/strategy/local_cache_middleware.rb:26:in `call'
+  rack (1.5.5) lib/rack/lock.rb:17:in `call'
+  actionpack (4.1.6) lib/action_dispatch/middleware/static.rb:64:in `call'
+  rack (1.5.5) lib/rack/sendfile.rb:112:in `call'
+  railties (4.1.6) lib/rails/engine.rb:514:in `call'
+  railties (4.1.6) lib/rails/application.rb:144:in `call'
+  rack (1.5.5) lib/rack/lock.rb:17:in `call'
+  rack (1.5.5) lib/rack/content_length.rb:14:in `call'
+  rack (1.5.5) lib/rack/handler/webrick.rb:60:in `service'
+  /home/sunil/.rvm/rubies/ruby-2.1.4/lib/ruby/2.1.0/webrick/httpserver.rb:138:in `service'
+  /home/sunil/.rvm/rubies/ruby-2.1.4/lib/ruby/2.1.0/webrick/httpserver.rb:94:in `run'
+  /home/sunil/.rvm/rubies/ruby-2.1.4/lib/ruby/2.1.0/webrick/server.rb:295:in `block in start_thread'
+
+
+  Rendered /home/sunil/.rvm/gems/ruby-2.1.4/gems/actionpack-4.1.6/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.8ms)
+  Rendered /home/sunil/.rvm/gems/ruby-2.1.4/gems/actionpack-4.1.6/lib/action_dispatch/middleware/templates/routes/_route.html.erb (1.2ms)
+  Rendered /home/sunil/.rvm/gems/ruby-2.1.4/gems/actionpack-4.1.6/lib/action_dispatch/middleware/templates/routes/_table.html.erb (1.0ms)
+  Rendered /home/sunil/.rvm/gems/ruby-2.1.4/gems/actionpack-4.1.6/lib/action_dispatch/middleware/templates/rescues/routing_error.html.erb within rescues/layout (18.9ms)
+
+
+Started GET "/" for 127.0.0.1 at 2016-07-20 18:17:59 +0530
+Processing by TenantsController#index as HTML
+  [1m[35mTenant Load (0.4ms)[0m  SELECT "tenants".* FROM "tenants"
+  Rendered tenants/index.html.erb within layouts/application (2.5ms)
+Completed 200 OK in 53ms (Views: 51.6ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/assets/forums.css?body=1" for 127.0.0.1 at 2016-07-20 18:17:59 +0530
+
+
+Started GET "/assets/scaffolds.css?body=1" for 127.0.0.1 at 2016-07-20 18:17:59 +0530
+
+
+Started GET "/assets/tenants.css?body=1" for 127.0.0.1 at 2016-07-20 18:17:59 +0530
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2016-07-20 18:17:59 +0530
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2016-07-20 18:17:59 +0530
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2016-07-20 18:17:59 +0530
+
+
+Started GET "/assets/forums.js?body=1" for 127.0.0.1 at 2016-07-20 18:17:59 +0530
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2016-07-20 18:17:59 +0530
+
+
+Started GET "/assets/tenants.js?body=1" for 127.0.0.1 at 2016-07-20 18:17:59 +0530
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2016-07-20 18:17:59 +0530
+
+
+Started GET "/forums" for 127.0.0.1 at 2016-07-20 18:18:01 +0530
+Processing by ForumsController#index as HTML
+  [1m[36mForum Load (0.5ms)[0m  [1mSELECT "forums".* FROM "forums"[0m
+  Rendered forums/index.html.erb within layouts/application (6.9ms)
+Completed 200 OK in 45ms (Views: 41.3ms | ActiveRecord: 2.4ms)
+
+
+Started GET "/forums/new" for 127.0.0.1 at 2016-07-20 18:18:04 +0530
+Processing by ForumsController#new as HTML
+  Rendered forums/_form.html.erb (2.2ms)
+  Rendered forums/new.html.erb within layouts/application (3.2ms)
+Completed 200 OK in 51ms (Views: 50.5ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/forums" for 127.0.0.1 at 2016-07-20 18:18:18 +0530
+Processing by ForumsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"FUTFMMOgz9otSf7ZadWmQOeTWvKzbkuLdxkFLg6ZeXw=", "forum"=>{"title"=>"Forum in database aaa", "description"=>"Forum in database aaa"}, "commit"=>"Create Forum"}
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "forums" ("created_at", "description", "title", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["created_at", "2016-07-20 12:48:18.508299"], ["description", "Forum in database aaa"], ["title", "Forum in database aaa"], ["updated_at", "2016-07-20 12:48:18.508299"]]
+  [1m[35m (74.7ms)[0m  COMMIT
+Redirected to http://aaa.localhost.com:3000/forums/2
+Completed 302 Found in 79ms (ActiveRecord: 75.2ms)
+
+
+Started GET "/forums/2" for 127.0.0.1 at 2016-07-20 18:18:18 +0530
+Processing by ForumsController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mForum Load (0.3ms)[0m  [1mSELECT  "forums".* FROM "forums"  WHERE "forums"."id" = $1 LIMIT 1[0m  [["id", 2]]
+  Rendered forums/show.html.erb within layouts/application (0.3ms)
+Completed 200 OK in 37ms (Views: 35.3ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/forums" for 127.0.0.1 at 2016-07-20 18:18:20 +0530
+Processing by ForumsController#index as HTML
+  [1m[35mForum Load (0.3ms)[0m  SELECT "forums".* FROM "forums"
+  Rendered forums/index.html.erb within layouts/application (1.5ms)
+Completed 200 OK in 47ms (Views: 46.2ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/forums" for 127.0.0.1 at 2016-07-20 18:19:44 +0530
+Processing by ForumsController#index as HTML
+  [1m[36mForum Load (0.5ms)[0m  [1mSELECT "forums".* FROM "forums"[0m
+  Rendered forums/index.html.erb within layouts/application (2.3ms)
+Completed 200 OK in 40ms (Views: 39.4ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/tenants" for 127.0.0.1 at 2016-07-20 18:19:47 +0530
+Processing by TenantsController#index as HTML
+  [1m[35mTenant Load (0.5ms)[0m  SELECT "tenants".* FROM "tenants"
+  Rendered tenants/index.html.erb within layouts/application (3.4ms)
+Completed 200 OK in 50ms (Views: 48.9ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/assets/forums.css?body=1" for 127.0.0.1 at 2016-07-20 18:19:47 +0530
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2016-07-20 18:19:47 +0530
+
+
+Started GET "/assets/scaffolds.css?body=1" for 127.0.0.1 at 2016-07-20 18:19:47 +0530
+
+
+Started GET "/assets/tenants.css?body=1" for 127.0.0.1 at 2016-07-20 18:19:47 +0530
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2016-07-20 18:19:47 +0530
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2016-07-20 18:19:47 +0530
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2016-07-20 18:19:47 +0530
+
+
+Started GET "/assets/forums.js?body=1" for 127.0.0.1 at 2016-07-20 18:19:47 +0530
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2016-07-20 18:19:47 +0530
+
+
+Started GET "/assets/tenants.js?body=1" for 127.0.0.1 at 2016-07-20 18:19:47 +0530
+
+
+Started GET "/forums" for 127.0.0.1 at 2016-07-20 18:19:49 +0530
+Processing by ForumsController#index as HTML
+  [1m[36mForum Load (24.8ms)[0m  [1mSELECT "forums".* FROM "forums"[0m
+  Rendered forums/index.html.erb within layouts/application (26.1ms)
+Completed 200 OK in 75ms (Views: 50.1ms | ActiveRecord: 24.8ms)
+
+
+Started GET "/assets/forums.css?body=1" for 127.0.0.1 at 2016-07-20 18:19:49 +0530
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2016-07-20 18:19:49 +0530
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2016-07-20 18:19:49 +0530
+
+
+Started GET "/assets/tenants.css?body=1" for 127.0.0.1 at 2016-07-20 18:19:49 +0530
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2016-07-20 18:19:49 +0530
+
+
+Started GET "/assets/scaffolds.css?body=1" for 127.0.0.1 at 2016-07-20 18:19:49 +0530
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2016-07-20 18:19:49 +0530
+
+
+Started GET "/assets/forums.js?body=1" for 127.0.0.1 at 2016-07-20 18:19:50 +0530
+
+
+Started GET "/assets/tenants.js?body=1" for 127.0.0.1 at 2016-07-20 18:19:50 +0530
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2016-07-20 18:19:50 +0530
+
+
+Started GET "/forums/new" for 127.0.0.1 at 2016-07-20 18:19:53 +0530
+Processing by ForumsController#new as HTML
+  Rendered forums/_form.html.erb (2.7ms)
+  Rendered forums/new.html.erb within layouts/application (3.8ms)
+Completed 200 OK in 47ms (Views: 46.6ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/forums" for 127.0.0.1 at 2016-07-20 18:20:16 +0530
+Processing by ForumsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"ri/TBsSi083PZbL95j3AYjwf4q2h05OwLC1dcH7J+Qo=", "forum"=>{"title"=>"Forum in database bb", "description"=>"Forum in database bb"}, "commit"=>"Create Forum"}
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36mSQL (0.6ms)[0m  [1mINSERT INTO "forums" ("created_at", "description", "title", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["created_at", "2016-07-20 12:50:16.740169"], ["description", "Forum in database bb"], ["title", "Forum in database bb"], ["updated_at", "2016-07-20 12:50:16.740169"]]
+  [1m[35m (58.5ms)[0m  COMMIT
+Redirected to http://bb.localhost.com:3000/forums/1
+Completed 302 Found in 63ms (ActiveRecord: 59.3ms)
+
+
+Started GET "/forums/1" for 127.0.0.1 at 2016-07-20 18:20:16 +0530
+Processing by ForumsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mForum Load (0.3ms)[0m  [1mSELECT  "forums".* FROM "forums"  WHERE "forums"."id" = $1 LIMIT 1[0m  [["id", 1]]
+  Rendered forums/show.html.erb within layouts/application (0.3ms)
+Completed 200 OK in 38ms (Views: 36.6ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/forums" for 127.0.0.1 at 2016-07-20 18:20:19 +0530
+Processing by ForumsController#index as HTML
+  [1m[35mForum Load (0.3ms)[0m  SELECT "forums".* FROM "forums"
+  Rendered forums/index.html.erb within layouts/application (1.1ms)
+Completed 200 OK in 46ms (Views: 45.2ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/tenants" for 127.0.0.1 at 2016-07-20 18:20:25 +0530
+Processing by TenantsController#index as HTML
+  [1m[36mTenant Load (0.3ms)[0m  [1mSELECT "tenants".* FROM "tenants"[0m
+  Rendered tenants/index.html.erb within layouts/application (1.4ms)
+Completed 200 OK in 39ms (Views: 38.0ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/assets/forums.css?body=1" for 127.0.0.1 at 2016-07-20 18:20:25 +0530
+
+
+Started GET "/assets/scaffolds.css?body=1" for 127.0.0.1 at 2016-07-20 18:20:25 +0530
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2016-07-20 18:20:25 +0530
+
+
+Started GET "/assets/tenants.css?body=1" for 127.0.0.1 at 2016-07-20 18:20:25 +0530
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2016-07-20 18:20:25 +0530
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2016-07-20 18:20:25 +0530
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2016-07-20 18:20:25 +0530
+
+
+Started GET "/assets/forums.js?body=1" for 127.0.0.1 at 2016-07-20 18:20:25 +0530
+
+
+Started GET "/assets/tenants.js?body=1" for 127.0.0.1 at 2016-07-20 18:20:25 +0530
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2016-07-20 18:20:25 +0530
+
+
+Started GET "/tenants" for 127.0.0.1 at 2016-07-28 10:50:12 +0530
+  [1m[36mActiveRecord::SchemaMigration Load (41.0ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by TenantsController#index as HTML
+  [1m[35mTenant Load (51.2ms)[0m  SELECT "tenants".* FROM "tenants"
+  Rendered tenants/index.html.erb within layouts/application (97.7ms)
+Completed 200 OK in 563ms (Views: 450.9ms | ActiveRecord: 90.8ms)
+
+
+Started GET "/assets/forums.css?body=1" for 127.0.0.1 at 2016-07-28 10:50:13 +0530
+
+
+Started GET "/assets/scaffolds.css?body=1" for 127.0.0.1 at 2016-07-28 10:50:13 +0530
+
+
+Started GET "/assets/tenants.css?body=1" for 127.0.0.1 at 2016-07-28 10:50:13 +0530
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2016-07-28 10:50:13 +0530
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2016-07-28 10:50:13 +0530
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2016-07-28 10:50:13 +0530
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2016-07-28 10:50:13 +0530
+
+
+Started GET "/assets/forums.js?body=1" for 127.0.0.1 at 2016-07-28 10:50:13 +0530
+
+
+Started GET "/assets/tenants.js?body=1" for 127.0.0.1 at 2016-07-28 10:50:13 +0530
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2016-07-28 10:50:13 +0530
+
+
+Started GET "/forums" for 127.0.0.1 at 2016-07-28 10:50:29 +0530
+Processing by ForumsController#index as HTML
+  [1m[36mForum Load (34.4ms)[0m  [1mSELECT "forums".* FROM "forums"[0m
+  Rendered forums/index.html.erb within layouts/application (47.5ms)
+Completed 200 OK in 131ms (Views: 83.9ms | ActiveRecord: 37.8ms)
+
+
+Started GET "/assets/forums.css?body=1" for 127.0.0.1 at 2016-07-28 10:50:29 +0530
+
+
+Started GET "/assets/scaffolds.css?body=1" for 127.0.0.1 at 2016-07-28 10:50:29 +0530
+
+
+Started GET "/assets/tenants.css?body=1" for 127.0.0.1 at 2016-07-28 10:50:29 +0530
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2016-07-28 10:50:29 +0530
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2016-07-28 10:50:29 +0530
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2016-07-28 10:50:29 +0530
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2016-07-28 10:50:29 +0530
+
+
+Started GET "/assets/forums.js?body=1" for 127.0.0.1 at 2016-07-28 10:50:29 +0530
+
+
+Started GET "/assets/tenants.js?body=1" for 127.0.0.1 at 2016-07-28 10:50:29 +0530
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2016-07-28 10:50:29 +0530
+
+
+Started GET "/tenants" for 127.0.0.1 at 2016-07-28 10:50:45 +0530
+Processing by TenantsController#index as HTML
+  [1m[35mTenant Load (0.3ms)[0m  SELECT "tenants".* FROM "tenants"
+  Rendered tenants/index.html.erb within layouts/application (1.5ms)
+Completed 200 OK in 37ms (Views: 36.5ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/assets/forums.css?body=1" for 127.0.0.1 at 2016-07-28 10:50:46 +0530
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2016-07-28 10:50:46 +0530
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2016-07-28 10:50:46 +0530
+
+
+Started GET "/assets/tenants.css?body=1" for 127.0.0.1 at 2016-07-28 10:50:46 +0530
+
+
+Started GET "/assets/scaffolds.css?body=1" for 127.0.0.1 at 2016-07-28 10:50:46 +0530
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2016-07-28 10:50:46 +0530
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2016-07-28 10:50:46 +0530
+
+
+Started GET "/assets/forums.js?body=1" for 127.0.0.1 at 2016-07-28 10:50:46 +0530
+
+
+Started GET "/assets/tenants.js?body=1" for 127.0.0.1 at 2016-07-28 10:50:46 +0530
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2016-07-28 10:50:46 +0530
+
+
+Started GET "/tenants" for 127.0.0.1 at 2016-07-28 11:26:13 +0530
+Processing by TenantsController#index as HTML
+  [1m[36mTenant Load (0.4ms)[0m  [1mSELECT "tenants".* FROM "tenants"[0m
+  Rendered tenants/index.html.erb within layouts/application (1.6ms)
+Completed 200 OK in 37ms (Views: 36.5ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/assets/forums.css?body=1" for 127.0.0.1 at 2016-07-28 11:26:13 +0530
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2016-07-28 11:26:13 +0530
+
+
+Started GET "/assets/scaffolds.css?body=1" for 127.0.0.1 at 2016-07-28 11:26:13 +0530
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2016-07-28 11:26:13 +0530
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2016-07-28 11:26:13 +0530
+
+
+Started GET "/assets/tenants.css?body=1" for 127.0.0.1 at 2016-07-28 11:26:13 +0530
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2016-07-28 11:26:13 +0530
+
+
+Started GET "/assets/forums.js?body=1" for 127.0.0.1 at 2016-07-28 11:26:13 +0530
+
+
+Started GET "/assets/tenants.js?body=1" for 127.0.0.1 at 2016-07-28 11:26:13 +0530
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2016-07-28 11:26:13 +0530
+
+
+Started GET "/tenants" for 127.0.0.1 at 2016-07-28 11:26:15 +0530
+Processing by TenantsController#index as HTML
+  [1m[35mTenant Load (0.4ms)[0m  SELECT "tenants".* FROM "tenants"
+  Rendered tenants/index.html.erb within layouts/application (2.4ms)
+Completed 200 OK in 42ms (Views: 40.9ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/tenants/new" for 127.0.0.1 at 2016-07-28 11:26:24 +0530
+Processing by TenantsController#new as HTML
+  Rendered tenants/_form.html.erb (87.6ms)
+  Rendered tenants/new.html.erb within layouts/application (130.7ms)
+Completed 200 OK in 181ms (Views: 180.2ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/tenants" for 127.0.0.1 at 2016-07-28 11:26:32 +0530
+Processing by TenantsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"2Q3fSX0uXqqhti+ehiQa1P7YBpmLibm36MwApieu6cs=", "tenant"=>{"name"=>"harbinger"}, "commit"=>"Create Tenant"}
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mTenant Exists (9.5ms)[0m  SELECT  1 AS one FROM "tenants"  WHERE "tenants"."name" = 'harbinger' LIMIT 1
+  [1m[36mSQL (31.6ms)[0m  [1mINSERT INTO "tenants" ("created_at", "name", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["created_at", "2016-07-28 05:56:32.337362"], ["name", "harbinger"], ["updated_at", "2016-07-28 05:56:32.337362"]]
+  [1m[35m (40.1ms)[0m  COMMIT
+  [1m[36m (0.9ms)[0m  [1mSELECT "tenants"."name" FROM "tenants"[0m
+  [1m[35m (58.5ms)[0m  CREATE SCHEMA "harbinger"
+  [1m[36mSQL (0.4ms)[0m  [1mCREATE EXTENSION IF NOT EXISTS "plpgsql"[0m
+  [1m[35m (392.7ms)[0m  CREATE TABLE "forums" ("id" serial primary key, "title" character varying(255), "description" text, "created_at" timestamp, "updated_at" timestamp) 
+  [1m[36m (142.7ms)[0m  [1mCREATE TABLE "tenants" ("id" serial primary key, "name" character varying(255), "created_at" timestamp, "updated_at" timestamp) [0m
+  [1m[35m (30.1ms)[0m  CREATE TABLE "schema_migrations" ("version" character varying(255) NOT NULL) 
+  [1m[36m (142.1ms)[0m  [1mCREATE UNIQUE INDEX  "unique_schema_migrations" ON "schema_migrations"  ("version")[0m
+  [1m[35m (0.5ms)[0m  SELECT version FROM "schema_migrations"
+  [1m[36m (37.8ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20160719120246')[0m
+  [1m[35m (5.9ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20160112092613')
+Redirected to http://localhost:3000/tenants/8
+Completed 302 Found in 1318ms (ActiveRecord: 905.2ms)
+
+
+Started GET "/tenants/8" for 127.0.0.1 at 2016-07-28 11:26:33 +0530
+Processing by TenantsController#show as HTML
+  Parameters: {"id"=>"8"}
+  [1m[36mTenant Load (0.3ms)[0m  [1mSELECT  "tenants".* FROM "tenants"  WHERE "tenants"."id" = $1 LIMIT 1[0m  [["id", 8]]
+  Rendered tenants/show.html.erb within layouts/application (0.6ms)
+Completed 200 OK in 65ms (Views: 62.9ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/assets/scaffolds.css?body=1" for 127.0.0.1 at 2016-07-28 11:26:33 +0530
+
+
+Started GET "/assets/forums.css?body=1" for 127.0.0.1 at 2016-07-28 11:26:33 +0530
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2016-07-28 11:26:33 +0530
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2016-07-28 11:26:33 +0530
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2016-07-28 11:26:33 +0530
+
+
+Started GET "/assets/tenants.css?body=1" for 127.0.0.1 at 2016-07-28 11:26:33 +0530
+
+
+Started GET "/assets/forums.js?body=1" for 127.0.0.1 at 2016-07-28 11:26:33 +0530
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2016-07-28 11:26:33 +0530
+
+
+Started GET "/assets/tenants.js?body=1" for 127.0.0.1 at 2016-07-28 11:26:33 +0530
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2016-07-28 11:26:33 +0530
+
+
+Started GET "/tenants" for 127.0.0.1 at 2016-07-28 11:26:52 +0530
+Processing by TenantsController#index as HTML
+  [1m[35mTenant Load (0.4ms)[0m  SELECT "tenants".* FROM "tenants"
+  Rendered tenants/index.html.erb within layouts/application (2.1ms)
+Completed 200 OK in 45ms (Views: 43.8ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/forums" for 127.0.0.1 at 2016-07-28 11:28:09 +0530
+Processing by ForumsController#index as HTML
+  [1m[36mForum Load (0.3ms)[0m  [1mSELECT "forums".* FROM "forums"[0m
+  Rendered forums/index.html.erb within layouts/application (1.5ms)
+Completed 200 OK in 38ms (Views: 36.8ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/assets/forums.css?body=1" for 127.0.0.1 at 2016-07-28 11:28:09 +0530
+
+
+Started GET "/assets/tenants.css?body=1" for 127.0.0.1 at 2016-07-28 11:28:09 +0530
+
+
+Started GET "/assets/scaffolds.css?body=1" for 127.0.0.1 at 2016-07-28 11:28:09 +0530
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2016-07-28 11:28:09 +0530
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2016-07-28 11:28:09 +0530
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2016-07-28 11:28:09 +0530
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2016-07-28 11:28:09 +0530
+
+
+Started GET "/assets/forums.js?body=1" for 127.0.0.1 at 2016-07-28 11:28:09 +0530
+
+
+Started GET "/assets/tenants.js?body=1" for 127.0.0.1 at 2016-07-28 11:28:09 +0530
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2016-07-28 11:28:09 +0530
+
+
+Started GET "/forums/new" for 127.0.0.1 at 2016-07-28 11:28:17 +0530
+Processing by ForumsController#new as HTML
+  Rendered forums/_form.html.erb (23.8ms)
+  Rendered forums/new.html.erb within layouts/application (26.3ms)
+Completed 200 OK in 83ms (Views: 82.4ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/forums" for 127.0.0.1 at 2016-07-28 11:28:25 +0530
+Processing by ForumsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"TJ2AAUE4cl/bsTBOWPWIY2JLRW46tTf3J7dKW/FeIt0=", "forum"=>{"title"=>"demo", "description"=>"demo"}, "commit"=>"Create Forum"}
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36mSQL (25.3ms)[0m  [1mINSERT INTO "forums" ("created_at", "description", "title", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["created_at", "2016-07-28 05:58:25.407488"], ["description", "demo"], ["title", "demo"], ["updated_at", "2016-07-28 05:58:25.407488"]]
+  [1m[35m (52.1ms)[0m  COMMIT
+Redirected to http://aaa.localhost.com:3000/forums/3
+Completed 302 Found in 82ms (ActiveRecord: 77.6ms)
+
+
+Started GET "/forums/3" for 127.0.0.1 at 2016-07-28 11:28:25 +0530
+Processing by ForumsController#show as HTML
+  Parameters: {"id"=>"3"}
+  [1m[36mForum Load (0.2ms)[0m  [1mSELECT  "forums".* FROM "forums"  WHERE "forums"."id" = $1 LIMIT 1[0m  [["id", 3]]
+  Rendered forums/show.html.erb within layouts/application (1.0ms)
+Completed 200 OK in 42ms (Views: 40.4ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/assets/forums.css?body=1" for 127.0.0.1 at 2016-07-28 11:28:25 +0530
+
+
+Started GET "/assets/scaffolds.css?body=1" for 127.0.0.1 at 2016-07-28 11:28:25 +0530
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2016-07-28 11:28:25 +0530
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2016-07-28 11:28:25 +0530
+
+
+Started GET "/assets/tenants.css?body=1" for 127.0.0.1 at 2016-07-28 11:28:25 +0530
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2016-07-28 11:28:25 +0530
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2016-07-28 11:28:25 +0530
+
+
+Started GET "/assets/forums.js?body=1" for 127.0.0.1 at 2016-07-28 11:28:25 +0530
+
+
+Started GET "/assets/tenants.js?body=1" for 127.0.0.1 at 2016-07-28 11:28:25 +0530
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2016-07-28 11:28:25 +0530
+
+
+Started GET "/tenants" for 127.0.0.1 at 2016-07-28 11:53:28 +0530
+Processing by TenantsController#index as HTML
+  [1m[35mTenant Load (0.3ms)[0m  SELECT "tenants".* FROM "tenants"
+  Rendered tenants/index.html.erb within layouts/application (1.5ms)
+Completed 200 OK in 42ms (Views: 41.4ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/assets/forums.css?body=1" for 127.0.0.1 at 2016-07-28 11:53:28 +0530
+
+
+Started GET "/assets/scaffolds.css?body=1" for 127.0.0.1 at 2016-07-28 11:53:28 +0530
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2016-07-28 11:53:28 +0530
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2016-07-28 11:53:28 +0530
+
+
+Started GET "/assets/tenants.css?body=1" for 127.0.0.1 at 2016-07-28 11:53:28 +0530
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2016-07-28 11:53:28 +0530
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2016-07-28 11:53:28 +0530
+
+
+Started GET "/assets/forums.js?body=1" for 127.0.0.1 at 2016-07-28 11:53:28 +0530
+
+
+Started GET "/assets/tenants.js?body=1" for 127.0.0.1 at 2016-07-28 11:53:28 +0530
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2016-07-28 11:53:28 +0530
+
+
+Started GET "/" for 127.0.0.1 at 2016-08-08 12:49:49 +0530
+  [1m[36mActiveRecord::SchemaMigration Load (34.7ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by TenantsController#index as HTML
+  [1m[35mTenant Load (51.3ms)[0m  SELECT "tenants".* FROM "tenants"
+  Rendered tenants/index.html.erb within layouts/application (113.7ms)
+Completed 200 OK in 551ms (Views: 418.7ms | ActiveRecord: 101.1ms)
+
+
+Started GET "/assets/scaffolds.css?body=1" for 127.0.0.1 at 2016-08-08 12:49:50 +0530
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2016-08-08 12:49:50 +0530
+
+
+Started GET "/assets/tenants.css?body=1" for 127.0.0.1 at 2016-08-08 12:49:50 +0530
+
+
+Started GET "/assets/forums.css?body=1" for 127.0.0.1 at 2016-08-08 12:49:50 +0530
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2016-08-08 12:49:50 +0530
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2016-08-08 12:49:50 +0530
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2016-08-08 12:49:50 +0530
+
+
+Started GET "/assets/forums.js?body=1" for 127.0.0.1 at 2016-08-08 12:49:50 +0530
+
+
+Started GET "/assets/tenants.js?body=1" for 127.0.0.1 at 2016-08-08 12:49:50 +0530
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2016-08-08 12:49:50 +0530
+
+
+Started GET "/tenants/new" for 127.0.0.1 at 2016-08-08 12:51:42 +0530
+Processing by TenantsController#new as HTML
+  Rendered tenants/_form.html.erb (98.6ms)
+  Rendered tenants/new.html.erb within layouts/application (141.8ms)
+Completed 200 OK in 191ms (Views: 190.5ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/tenants" for 127.0.0.1 at 2016-08-08 12:51:48 +0530
+Processing by TenantsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"Z/xV49yoiou7IAMGsJK3EWA63fckOU3SbJsBKbz8ii4=", "tenant"=>{"name"=>"kasif"}, "commit"=>"Create Tenant"}
+  [1m[36m (0.3ms)[0m  [1mBEGIN[0m
+  [1m[35mTenant Exists (11.1ms)[0m  SELECT  1 AS one FROM "tenants"  WHERE "tenants"."name" = 'kasif' LIMIT 1
+  [1m[36mSQL (31.2ms)[0m  [1mINSERT INTO "tenants" ("created_at", "name", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["created_at", "2016-08-08 07:21:48.361685"], ["name", "kasif"], ["updated_at", "2016-08-08 07:21:48.361685"]]
+  [1m[35m (19.9ms)[0m  COMMIT
+  [1m[36m (0.8ms)[0m  [1mSELECT "tenants"."name" FROM "tenants"[0m
+  [1m[35m (39.6ms)[0m  CREATE SCHEMA "kasif"
+  [1m[36mSQL (0.5ms)[0m  [1mCREATE EXTENSION IF NOT EXISTS "plpgsql"[0m
+  [1m[35m (404.0ms)[0m  CREATE TABLE "forums" ("id" serial primary key, "title" character varying(255), "description" text, "created_at" timestamp, "updated_at" timestamp) 
+  [1m[36m (75.4ms)[0m  [1mCREATE TABLE "tenants" ("id" serial primary key, "name" character varying(255), "created_at" timestamp, "updated_at" timestamp) [0m
+  [1m[35m (9.1ms)[0m  CREATE TABLE "schema_migrations" ("version" character varying(255) NOT NULL) 
+  [1m[36m (63.3ms)[0m  [1mCREATE UNIQUE INDEX  "unique_schema_migrations" ON "schema_migrations"  ("version")[0m
+  [1m[35m (0.7ms)[0m  SELECT version FROM "schema_migrations"
+  [1m[36m (9.5ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20160719120246')[0m
+  [1m[35m (10.7ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20160112092613')
+Redirected to http://localhost:3000/tenants/9
+Completed 302 Found in 921ms (ActiveRecord: 688.2ms)
+
+
+Started GET "/tenants/9" for 127.0.0.1 at 2016-08-08 12:51:49 +0530
+Processing by TenantsController#show as HTML
+  Parameters: {"id"=>"9"}
+  [1m[36mTenant Load (0.3ms)[0m  [1mSELECT  "tenants".* FROM "tenants"  WHERE "tenants"."id" = $1 LIMIT 1[0m  [["id", 9]]
+  Rendered tenants/show.html.erb within layouts/application (0.8ms)
+Completed 200 OK in 176ms (Views: 174.2ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/tenants" for 127.0.0.1 at 2016-08-08 12:52:05 +0530
+Processing by TenantsController#index as HTML
+  [1m[35mTenant Load (0.5ms)[0m  SELECT "tenants".* FROM "tenants"
+  Rendered tenants/index.html.erb within layouts/application (3.3ms)
+Completed 200 OK in 43ms (Views: 41.8ms | ActiveRecord: 0.5ms)
+
+
+Started DELETE "/tenants/9" for 127.0.0.1 at 2016-08-08 12:52:36 +0530
+Processing by TenantsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"Z/xV49yoiou7IAMGsJK3EWA63fckOU3SbJsBKbz8ii4=", "id"=>"9"}
+  [1m[36mTenant Load (0.6ms)[0m  [1mSELECT  "tenants".* FROM "tenants"  WHERE "tenants"."id" = $1 LIMIT 1[0m  [["id", 9]]
+  [1m[35m (0.3ms)[0m  BEGIN
+  [1m[36mSQL (0.5ms)[0m  [1mDELETE FROM "tenants" WHERE "tenants"."id" = $1[0m  [["id", 9]]
+  [1m[35m (17.2ms)[0m  COMMIT
+  [1m[36m (0.6ms)[0m  [1mSELECT "tenants"."name" FROM "tenants"[0m
+  [1m[35m (32.5ms)[0m  DROP SCHEMA "kasif" CASCADE
+Redirected to http://localhost:3000/tenants
+Completed 302 Found in 81ms (ActiveRecord: 55.8ms)
+
+
+Started GET "/tenants" for 127.0.0.1 at 2016-08-08 12:52:36 +0530
+Processing by TenantsController#index as HTML
+  [1m[36mTenant Load (0.4ms)[0m  [1mSELECT "tenants".* FROM "tenants"[0m
+  Rendered tenants/index.html.erb within layouts/application (1.9ms)
+Completed 200 OK in 43ms (Views: 41.9ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/forums" for 127.0.0.1 at 2016-08-08 12:52:58 +0530
+Processing by ForumsController#index as HTML
+  [1m[35mForum Load (62.3ms)[0m  SELECT "forums".* FROM "forums"
+  Rendered forums/index.html.erb within layouts/application (79.6ms)
+Completed 200 OK in 178ms (Views: 83.4ms | ActiveRecord: 66.5ms)
+
+
+Started GET "/assets/forums.css?body=1" for 127.0.0.1 at 2016-08-08 12:52:58 +0530
+
+
+Started GET "/assets/scaffolds.css?body=1" for 127.0.0.1 at 2016-08-08 12:52:58 +0530
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2016-08-08 12:52:58 +0530
+
+
+Started GET "/assets/tenants.css?body=1" for 127.0.0.1 at 2016-08-08 12:52:58 +0530
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2016-08-08 12:52:58 +0530
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2016-08-08 12:52:58 +0530
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2016-08-08 12:52:58 +0530
+
+
+Started GET "/assets/forums.js?body=1" for 127.0.0.1 at 2016-08-08 12:52:58 +0530
+
+
+Started GET "/assets/tenants.js?body=1" for 127.0.0.1 at 2016-08-08 12:52:58 +0530
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2016-08-08 12:52:58 +0530
+
+
+Started GET "/forums/new" for 127.0.0.1 at 2016-08-08 12:53:26 +0530
+Processing by ForumsController#new as HTML
+  Rendered forums/_form.html.erb (25.6ms)
+  Rendered forums/new.html.erb within layouts/application (27.4ms)
+Completed 200 OK in 73ms (Views: 72.4ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/forums" for 127.0.0.1 at 2016-08-08 12:53:32 +0530
+Processing by ForumsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"DuJS/DaxhGuXUm0zAHmhlNCFt1hNG1WJBLOEU726lLE=", "forum"=>{"title"=>"eee", "description"=>"ee"}, "commit"=>"Create Forum"}
+  [1m[36m (0.3ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (29.5ms)[0m  INSERT INTO "forums" ("created_at", "description", "title", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"  [["created_at", "2016-08-08 07:23:32.299800"], ["description", "ee"], ["title", "eee"], ["updated_at", "2016-08-08 07:23:32.299800"]]
+  [1m[36m (46.9ms)[0m  [1mCOMMIT[0m
+Redirected to http://aaa.localhost.com:3000/forums/4
+Completed 302 Found in 83ms (ActiveRecord: 76.7ms)
+
+
+Started GET "/forums/4" for 127.0.0.1 at 2016-08-08 12:53:32 +0530
+Processing by ForumsController#show as HTML
+  Parameters: {"id"=>"4"}
+  [1m[35mForum Load (0.3ms)[0m  SELECT  "forums".* FROM "forums"  WHERE "forums"."id" = $1 LIMIT 1  [["id", 4]]
+  Rendered forums/show.html.erb within layouts/application (0.7ms)
+Completed 200 OK in 62ms (Views: 59.5ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/forums" for 127.0.0.1 at 2016-08-08 12:53:43 +0530
+Processing by ForumsController#index as HTML
+  [1m[36mForum Load (0.4ms)[0m  [1mSELECT "forums".* FROM "forums"[0m
+  Rendered forums/index.html.erb within layouts/application (2.7ms)
+Completed 200 OK in 39ms (Views: 37.9ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/tenants" for 127.0.0.1 at 2016-08-08 12:53:47 +0530
+Processing by TenantsController#index as HTML
+  [1m[35mTenant Load (0.3ms)[0m  SELECT "tenants".* FROM "tenants"
+  Rendered tenants/index.html.erb within layouts/application (1.9ms)
+Completed 200 OK in 42ms (Views: 41.1ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/forums" for 127.0.0.1 at 2016-08-08 12:54:38 +0530
+Processing by ForumsController#index as HTML
+  [1m[36mForum Load (48.3ms)[0m  [1mSELECT "forums".* FROM "forums"[0m
+  Rendered forums/index.html.erb within layouts/application (50.1ms)
+Completed 200 OK in 103ms (Views: 53.6ms | ActiveRecord: 48.3ms)
+
+
+Started GET "/assets/forums.css?body=1" for 127.0.0.1 at 2016-08-08 12:54:38 +0530
+
+
+Started GET "/assets/tenants.css?body=1" for 127.0.0.1 at 2016-08-08 12:54:38 +0530
+
+
+Started GET "/assets/scaffolds.css?body=1" for 127.0.0.1 at 2016-08-08 12:54:38 +0530
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2016-08-08 12:54:38 +0530
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2016-08-08 12:54:38 +0530
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2016-08-08 12:54:38 +0530
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2016-08-08 12:54:38 +0530
+
+
+Started GET "/assets/forums.js?body=1" for 127.0.0.1 at 2016-08-08 12:54:38 +0530
+
+
+Started GET "/assets/tenants.js?body=1" for 127.0.0.1 at 2016-08-08 12:54:38 +0530
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2016-08-08 12:54:38 +0530
+
+
+Started GET "/forums/new" for 127.0.0.1 at 2016-08-08 12:54:42 +0530
+Processing by ForumsController#new as HTML
+  Rendered forums/_form.html.erb (2.0ms)
+  Rendered forums/new.html.erb within layouts/application (2.9ms)
+Completed 200 OK in 39ms (Views: 37.9ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/forums" for 127.0.0.1 at 2016-08-08 12:54:45 +0530
+Processing by ForumsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"NzmupeevayeQQYoP7TBdHq3nucQGcBrSBtositN9KEA=", "forum"=>{"title"=>"rrr", "description"=>"rr"}, "commit"=>"Create Forum"}
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36mSQL (39.7ms)[0m  [1mINSERT INTO "forums" ("created_at", "description", "title", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["created_at", "2016-08-08 07:24:45.515722"], ["description", "rr"], ["title", "rrr"], ["updated_at", "2016-08-08 07:24:45.515722"]]
+  [1m[35m (67.2ms)[0m  COMMIT
+Redirected to http://bb.localhost.com:3000/forums/2
+Completed 302 Found in 113ms (ActiveRecord: 107.2ms)
+
+
+Started GET "/forums/2" for 127.0.0.1 at 2016-08-08 12:54:45 +0530
+Processing by ForumsController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mForum Load (0.3ms)[0m  [1mSELECT  "forums".* FROM "forums"  WHERE "forums"."id" = $1 LIMIT 1[0m  [["id", 2]]
+  Rendered forums/show.html.erb within layouts/application (0.4ms)
+Completed 200 OK in 61ms (Views: 58.5ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/forums" for 127.0.0.1 at 2016-08-08 12:54:51 +0530
+Processing by ForumsController#index as HTML
+  [1m[35mForum Load (0.3ms)[0m  SELECT "forums".* FROM "forums"
+  Rendered forums/index.html.erb within layouts/application (1.4ms)
+Completed 200 OK in 38ms (Views: 37.0ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/" for 127.0.0.1 at 2016-08-10 11:34:24 +0530
+  [1m[36mActiveRecord::SchemaMigration Load (40.4ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by TenantsController#index as HTML
+  [1m[35mTenant Load (51.5ms)[0m  SELECT "tenants".* FROM "tenants"
+  Rendered tenants/index.html.erb within layouts/application (108.9ms)
+Completed 200 OK in 617ms (Views: 482.4ms | ActiveRecord: 101.8ms)
+
+
+Started GET "/" for 127.0.0.1 at 2016-08-10 11:34:30 +0530
+Processing by TenantsController#index as HTML
+  [1m[36mTenant Load (0.4ms)[0m  [1mSELECT "tenants".* FROM "tenants"[0m
+  Rendered tenants/index.html.erb within layouts/application (2.3ms)
+Completed 200 OK in 52ms (Views: 50.9ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/assets/forums.css?body=1" for 127.0.0.1 at 2016-08-10 11:34:30 +0530
+
+
+Started GET "/assets/scaffolds.css?body=1" for 127.0.0.1 at 2016-08-10 11:34:30 +0530
+
+
+Started GET "/assets/tenants.css?body=1" for 127.0.0.1 at 2016-08-10 11:34:30 +0530
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2016-08-10 11:34:30 +0530
+
+
+Started GET "/assets/forums.js?body=1" for 127.0.0.1 at 2016-08-10 11:34:30 +0530
+
+
+Started GET "/assets/tenants.js?body=1" for 127.0.0.1 at 2016-08-10 11:34:30 +0530
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2016-08-10 11:34:30 +0530
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2016-08-10 11:34:30 +0530
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2016-08-10 11:34:30 +0530
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2016-08-10 11:34:30 +0530
+
+
+Started GET "/tenants/new" for 127.0.0.1 at 2016-08-10 11:34:56 +0530
+Processing by TenantsController#new as HTML
+  Rendered tenants/_form.html.erb (253.4ms)
+  Rendered tenants/new.html.erb within layouts/application (341.0ms)
+Completed 200 OK in 401ms (Views: 400.7ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/tenants" for 127.0.0.1 at 2016-08-10 11:36:13 +0530
+Processing by TenantsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"mmnfEe9Ao9T/cAunvY1E5QpBDGNzZedvly2qv0bBD6g=", "tenant"=>{"name"=>"Deepali"}, "commit"=>"Create Tenant"}
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mTenant Exists (16.5ms)[0m  [1mSELECT  1 AS one FROM "tenants"  WHERE "tenants"."name" = 'Deepali' LIMIT 1[0m
+  [1m[35mSQL (30.6ms)[0m  INSERT INTO "tenants" ("created_at", "name", "updated_at") VALUES ($1, $2, $3) RETURNING "id"  [["created_at", "2016-08-10 06:06:13.465915"], ["name", "Deepali"], ["updated_at", "2016-08-10 06:06:13.465915"]]
+  [1m[36m (22.7ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.5ms)[0m  SELECT "tenants"."name" FROM "tenants"
+  [1m[36m (37.1ms)[0m  [1mCREATE SCHEMA "Deepali"[0m
+  [1m[35mSQL (0.4ms)[0m  CREATE EXTENSION IF NOT EXISTS "plpgsql"
+  [1m[36m (264.1ms)[0m  [1mCREATE TABLE "forums" ("id" serial primary key, "title" character varying(255), "description" text, "created_at" timestamp, "updated_at" timestamp) [0m
+  [1m[35m (64.9ms)[0m  CREATE TABLE "tenants" ("id" serial primary key, "name" character varying(255), "created_at" timestamp, "updated_at" timestamp) 
+  [1m[36m (10.0ms)[0m  [1mCREATE TABLE "schema_migrations" ("version" character varying(255) NOT NULL) [0m
+  [1m[35m (62.5ms)[0m  CREATE UNIQUE INDEX  "unique_schema_migrations" ON "schema_migrations"  ("version")
+  [1m[36m (0.6ms)[0m  [1mSELECT version FROM "schema_migrations"[0m
+  [1m[35m (9.7ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20160719120246')
+  [1m[36m (11.0ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20160112092613')[0m
+Redirected to http://localhost:3000/tenants/10
+Completed 302 Found in 767ms (ActiveRecord: 542.8ms)
+
+
+Started GET "/tenants/10" for 127.0.0.1 at 2016-08-10 11:36:14 +0530
+Processing by TenantsController#show as HTML
+  Parameters: {"id"=>"10"}
+  [1m[35mTenant Load (0.5ms)[0m  SELECT  "tenants".* FROM "tenants"  WHERE "tenants"."id" = $1 LIMIT 1  [["id", 10]]
+  Rendered tenants/show.html.erb within layouts/application (0.9ms)
+Completed 200 OK in 65ms (Views: 61.9ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2016-08-10 11:36:14 +0530
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2016-08-10 11:36:14 +0530
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2016-08-10 11:36:14 +0530
+
+
+Started GET "/tenants" for 127.0.0.1 at 2016-08-10 11:36:16 +0530
+Processing by TenantsController#index as HTML
+  [1m[36mTenant Load (0.3ms)[0m  [1mSELECT "tenants".* FROM "tenants"[0m
+  Rendered tenants/index.html.erb within layouts/application (2.0ms)
+Completed 200 OK in 44ms (Views: 43.1ms | ActiveRecord: 0.3ms)
+
+
+Started DELETE "/tenants/10" for 127.0.0.1 at 2016-08-10 11:37:09 +0530
+Processing by TenantsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"mmnfEe9Ao9T/cAunvY1E5QpBDGNzZedvly2qv0bBD6g=", "id"=>"10"}
+  [1m[35mTenant Load (0.3ms)[0m  SELECT  "tenants".* FROM "tenants"  WHERE "tenants"."id" = $1 LIMIT 1  [["id", 10]]
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  DELETE FROM "tenants" WHERE "tenants"."id" = $1  [["id", 10]]
+  [1m[36m (44.2ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.6ms)[0m  SELECT "tenants"."name" FROM "tenants"
+  [1m[36m (33.0ms)[0m  [1mDROP SCHEMA "Deepali" CASCADE[0m
+Redirected to http://localhost:3000/tenants
+Completed 302 Found in 106ms (ActiveRecord: 81.9ms)
+
+
+Started GET "/tenants" for 127.0.0.1 at 2016-08-10 11:37:09 +0530
+Processing by TenantsController#index as HTML
+  [1m[35mTenant Load (0.5ms)[0m  SELECT "tenants".* FROM "tenants"
+  Rendered tenants/index.html.erb within layouts/application (2.9ms)
+Completed 200 OK in 72ms (Views: 70.4ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2016-08-10 11:37:09 +0530
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2016-08-10 11:37:09 +0530
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2016-08-10 11:37:09 +0530
+
+
+Started GET "/forums" for 127.0.0.1 at 2016-08-10 11:39:00 +0530
+Processing by ForumsController#index as HTML
+  [1m[36mForum Load (34.2ms)[0m  [1mSELECT "forums".* FROM "forums"[0m
+  Rendered forums/index.html.erb within layouts/application (44.8ms)
+Completed 200 OK in 96ms (Views: 51.3ms | ActiveRecord: 36.4ms)
+
+
+Started GET "/assets/forums.css?body=1" for 127.0.0.1 at 2016-08-10 11:39:01 +0530
+
+
+Started GET "/assets/scaffolds.css?body=1" for 127.0.0.1 at 2016-08-10 11:39:01 +0530
+
+
+Started GET "/assets/tenants.css?body=1" for 127.0.0.1 at 2016-08-10 11:39:01 +0530
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2016-08-10 11:39:01 +0530
+
+
+Started GET "/assets/forums.js?body=1" for 127.0.0.1 at 2016-08-10 11:39:01 +0530
+
+
+Started GET "/assets/tenants.js?body=1" for 127.0.0.1 at 2016-08-10 11:39:01 +0530
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2016-08-10 11:39:01 +0530
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2016-08-10 11:39:01 +0530
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2016-08-10 11:39:01 +0530
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2016-08-10 11:39:01 +0530
+
+
+Started GET "/forums/new" for 127.0.0.1 at 2016-08-10 11:39:23 +0530
+Processing by ForumsController#new as HTML
+  Rendered forums/_form.html.erb (25.5ms)
+  Rendered forums/new.html.erb within layouts/application (27.3ms)
+Completed 200 OK in 149ms (Views: 148.3ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/forums" for 127.0.0.1 at 2016-08-10 11:39:29 +0530
+Processing by ForumsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"6LhHOKtiVJj7+T53aLySMisK/qDrxmc3fKSTcmxfHoY=", "forum"=>{"title"=>"tttt", "description"=>"tt"}, "commit"=>"Create Forum"}
+  [1m[35m (0.3ms)[0m  BEGIN
+  [1m[36mSQL (36.4ms)[0m  [1mINSERT INTO "forums" ("created_at", "description", "title", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["created_at", "2016-08-10 06:09:29.216332"], ["description", "tt"], ["title", "tttt"], ["updated_at", "2016-08-10 06:09:29.216332"]]
+  [1m[35m (50.7ms)[0m  COMMIT
+Redirected to http://aaa.localhost.com:3000/forums/5
+Completed 302 Found in 91ms (ActiveRecord: 87.4ms)
+
+
+Started GET "/forums/5" for 127.0.0.1 at 2016-08-10 11:39:29 +0530
+Processing by ForumsController#show as HTML
+  Parameters: {"id"=>"5"}
+  [1m[36mForum Load (0.3ms)[0m  [1mSELECT  "forums".* FROM "forums"  WHERE "forums"."id" = $1 LIMIT 1[0m  [["id", 5]]
+  Rendered forums/show.html.erb within layouts/application (0.9ms)
+Completed 200 OK in 65ms (Views: 62.5ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2016-08-10 11:39:29 +0530
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2016-08-10 11:39:29 +0530
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2016-08-10 11:39:29 +0530
+
+
+Started GET "/forums" for 127.0.0.1 at 2016-08-10 11:40:02 +0530
+Processing by ForumsController#index as HTML
+  [1m[35mForum Load (0.3ms)[0m  SELECT "forums".* FROM "forums"
+  Rendered forums/index.html.erb within layouts/application (2.7ms)
+Completed 200 OK in 42ms (Views: 41.3ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/tenants" for 127.0.0.1 at 2016-08-10 11:40:05 +0530
+Processing by TenantsController#index as HTML
+  [1m[36mTenant Load (0.4ms)[0m  [1mSELECT "tenants".* FROM "tenants"[0m
+  Rendered tenants/index.html.erb within layouts/application (2.3ms)
+Completed 200 OK in 40ms (Views: 38.9ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2016-08-10 11:40:05 +0530
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2016-08-10 11:40:05 +0530
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2016-08-10 11:40:05 +0530
+
+
+Started GET "/forums" for 127.0.0.1 at 2016-08-10 11:40:08 +0530
+Processing by ForumsController#index as HTML
+  [1m[35mForum Load (39.6ms)[0m  SELECT "forums".* FROM "forums"
+  Rendered forums/index.html.erb within layouts/application (41.0ms)
+Completed 200 OK in 77ms (Views: 36.6ms | ActiveRecord: 39.6ms)
+
+
+Started GET "/assets/forums.css?body=1" for 127.0.0.1 at 2016-08-10 11:40:08 +0530
+
+
+Started GET "/assets/scaffolds.css?body=1" for 127.0.0.1 at 2016-08-10 11:40:08 +0530
+
+
+Started GET "/assets/tenants.css?body=1" for 127.0.0.1 at 2016-08-10 11:40:08 +0530
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2016-08-10 11:40:08 +0530
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2016-08-10 11:40:08 +0530
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2016-08-10 11:40:08 +0530
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2016-08-10 11:40:08 +0530
+
+
+Started GET "/assets/forums.js?body=1" for 127.0.0.1 at 2016-08-10 11:40:08 +0530
+
+
+Started GET "/assets/tenants.js?body=1" for 127.0.0.1 at 2016-08-10 11:40:08 +0530
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2016-08-10 11:40:08 +0530
+
+
+Started GET "/tenants" for 127.0.0.1 at 2016-08-10 11:41:32 +0530
+Processing by TenantsController#index as HTML
+  [1m[36mTenant Load (0.5ms)[0m  [1mSELECT "tenants".* FROM "tenants"[0m
+  Rendered tenants/index.html.erb within layouts/application (3.0ms)
+Completed 200 OK in 45ms (Views: 43.9ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2016-08-10 11:41:33 +0530
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2016-08-10 11:41:33 +0530
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2016-08-10 11:41:33 +0530
